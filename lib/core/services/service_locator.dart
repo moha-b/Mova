@@ -3,7 +3,8 @@ import 'package:mova/data/repository/base_repository_impl.dart';
 import 'package:mova/data/source/remote_datasource.dart';
 import 'package:mova/domain/repository/base_repository.dart';
 import 'package:mova/domain/usecase/now_playing_usecase.dart';
-import 'package:mova/presentation/controllers/movie_bloc.dart';
+
+import '../../presentation/bloc/movie_bloc.dart';
 
 final getIt = GetIt.instance;
 
