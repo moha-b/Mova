@@ -18,7 +18,9 @@ class MovieList extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: 3,
-        itemBuilder: (context, index) => const ImageContainer(imageUrl: ""),
+        itemBuilder: (context, index) => const ImageContainer(
+            imageUrl:
+                "https://cdnx.jumpseller.com/shazam-online/image/19842553/jigokuraku_01_ivrea.jpg?1633711104"),
       ),
     );
   }

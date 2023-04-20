@@ -21,4 +21,10 @@ class Texts {
         textStyle: TextStyle(
             color: color ?? Colors.black.withOpacity(0.7), fontSize: 20.sp),
       ));
+
+  static Text hint({required String string, Color? color}) => Text(string,
+      style: GoogleFonts.fredokaOne(
+        textStyle: TextStyle(
+            color: color ?? Colors.black.withOpacity(0.7), fontSize: 13.sp),
+      ));
 }

@@ -5,6 +5,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:mova/core/services/service_locator.dart';
 import 'package:mova/core/util/constance.dart';
 import 'package:mova/core/widgets/title_section.dart';
+import 'package:mova/presentation/features/Home/search_page.dart';
 
 import '../../../core/widgets/movie_list.dart';
 import '../../bloc/movie_bloc.dart';
@@ -21,7 +22,7 @@ class MainPage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 40.h),
-              SearchSection(),
+              const SearchSection(),
               TitleSection(title: "Now Playing", isLoading: false),
               MovieList(),
             ],
@@ -46,24 +47,27 @@ class SearchSection extends StatelessWidget {
         children: [
           Texts.h1(string: "Choose a"),
           Texts.h1(string: "Movie for today"),
-          Padding(
-            padding: EdgeInsets.only(top: 25.w),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(width: 0, style: BorderStyle.none),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(15.0),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SearchPage()));
+            },
+            child: Hero(
+              tag: "searchPage",
+              child: Container(
+                margin: EdgeInsets.only(top: 25.w),
+                child: Card(
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.w)),
+                  color: Colors.grey.withOpacity(0.1),
+                  child: ListTile(
+                    leading: Icon(Iconsax.search_normal),
+                    title: Texts.hint(
+                      string: "Find a movie that interests you",
+                      color: Colors.grey,
+                    ),
                   ),
-                ),
-                contentPadding: EdgeInsets.symmetric(vertical: 18),
-                filled: true,
-                fillColor: Colors.grey.withOpacity(0.1),
-                hintText: 'Find a movie that interests you',
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
-                prefixIcon: Icon(
-                  Iconsax.search_normal,
-                  color: Colors.black54,
                 ),
               ),
             ),
