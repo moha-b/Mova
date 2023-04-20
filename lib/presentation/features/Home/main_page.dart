@@ -21,8 +21,7 @@ class MainPage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 40.h),
-              const SearchSection(),
+              SearchSection(),
               TitleSection(title: "Now Playing", isLoading: false),
               MovieList(),
             ],
@@ -40,7 +39,8 @@ class SearchSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      margin: EdgeInsets.only(top: 40.h),
       padding: EdgeInsets.all(16.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
