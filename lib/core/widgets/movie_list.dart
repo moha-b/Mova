@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mova/core/util/constance.dart';
+import 'package:mova/domain/entities/movie_entity.dart';
 
 import 'image_container.dart';
 
 class MovieList extends StatelessWidget {
+  final List<MovieEntity> list;
   const MovieList({
+    required this.list,
     super.key,
   });
 
@@ -17,10 +21,11 @@ class MovieList extends StatelessWidget {
         shrinkWrap: true,
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount: 3,
-        itemBuilder: (context, index) => const ImageContainer(
-            imageUrl:
-                "https://cdnx.jumpseller.com/shazam-online/image/19842553/jigokuraku_01_ivrea.jpg?1633711104"),
+        itemCount: list.length,
+        itemBuilder: (context, index) => ImageContainer(
+          imageUrl: Api.imageUrl(list[index].posterPath),
+          rate: list[index].voteAverage,
+        ),
       ),
     );
   }

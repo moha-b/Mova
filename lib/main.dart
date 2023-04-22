@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mova/core/services/service_locator.dart';
-import 'package:mova/presentation/features/Home/main_page.dart';
+import 'package:mova/presentation/Home/movies_screen.dart';
 
 void main() async {
   ServicesLocator().init();
@@ -21,7 +21,7 @@ class Mova extends StatelessWidget {
       builder: (context, child) {
         return const MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: MainPage(),
+          home: MoviesScreen(),
         );
       },
     );

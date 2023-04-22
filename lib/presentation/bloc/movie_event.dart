@@ -8,3 +8,7 @@ abstract class MovieEvent extends Equatable {
 }
 
 class GetNowPlayingEvent extends MovieEvent {}
+
+class GetTopRatedEvent extends MovieEvent {}
+
+class GetUpcomingEvent extends MovieEvent {}

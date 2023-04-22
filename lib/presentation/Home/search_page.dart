@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mova/core/widgets/movie_card.dart';
+import 'package:mova/core/widgets/movie_list_card.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -63,7 +63,7 @@ class _SearchPageState extends State<SearchPage> {
                   : ListView.builder(
                       itemCount: 10, // Replace with actual search results
                       itemBuilder: (BuildContext context, int index) {
-                        return MovieCard();
+                        return MovieListCard();
                       },
                     ),
             ),

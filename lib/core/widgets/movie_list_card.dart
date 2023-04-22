@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mova/core/util/constance.dart';
 import 'package:shimmer/shimmer.dart';
 
-class MovieCard extends StatelessWidget {
-  const MovieCard({
+class MovieListCard extends StatelessWidget {
+  const MovieListCard({
     Key? key,
   }) : super(key: key);
 

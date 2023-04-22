@@ -6,6 +6,8 @@ class Api {
   static const String BASE_URL = "https://api.themoviedb.org/3/movie";
   static const String KEY = "?api_key=15cc2d06189e5b776834afe0bdef40ba";
   static const String NOW_PLAYING_URL = "$BASE_URL/now_playing$KEY";
+  static const String TOP_RATED_URL = "$BASE_URL/top_rated$KEY";
+  static const String UPCOMING_URL = "$BASE_URL/upcoming$KEY";
   static String imageUrl(String path) => "https://image.tmdb.org/t/p/w500$path";
 }
 

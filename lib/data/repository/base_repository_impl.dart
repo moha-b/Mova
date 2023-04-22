@@ -18,4 +18,24 @@ class BaseRepositoryImpl extends BaseRepository {
       return left(failure);
     }
   }
+
+  @override
+  Future<Either<Failure, List<MovieEntity>>> getTopRatedMovies() async {
+    final result = await dataSourceRepository.getTopRatedMovies();
+    try {
+      return Right(result);
+    } on ServerFailure catch (failure) {
+      return left(failure);
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<MovieEntity>>> getUpcomingMovies() async {
+    final result = await dataSourceRepository.getUpcomingMovies();
+    try {
+      return Right(result);
+    } on ServerFailure catch (failure) {
+      return left(failure);
+    }
+  }
 }

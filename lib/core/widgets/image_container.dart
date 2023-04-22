@@ -5,8 +5,10 @@ import 'package:shimmer/shimmer.dart';
 
 class ImageContainer extends StatelessWidget {
   final String imageUrl;
+  final double rate;
 
-  const ImageContainer({Key? key, required this.imageUrl}) : super(key: key);
+  const ImageContainer({Key? key, required this.imageUrl, required this.rate})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class ImageContainer extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4.0),
               ),
               child: Text(
-                "9.0",
+                "$rate",
                 style: TextStyle(color: Colors.white),
               ),
             ),
