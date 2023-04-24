@@ -9,6 +9,9 @@ class Api {
   static const String TOP_RATED_URL = "$BASE_URL/top_rated$KEY";
   static const String UPCOMING_URL = "$BASE_URL/upcoming$KEY";
   static String imageUrl(String path) => "https://image.tmdb.org/t/p/w500$path";
+  static String detailUrl(int movieId) => "$BASE_URL/$movieId$KEY";
+  static String testUrl() =>
+      "https://api.themoviedb.org/3/movie/868759?api_key=15cc2d06189e5b776834afe0bdef40ba";
 }
 
 class Texts {

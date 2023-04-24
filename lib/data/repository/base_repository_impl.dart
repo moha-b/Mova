@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:mova/core/error/failure.dart';
 import 'package:mova/data/source/remote_datasource.dart';
+import 'package:mova/domain/entities/detail_entity.dart';
 import 'package:mova/domain/entities/movie_entity.dart';
 import 'package:mova/domain/repository/base_repository.dart';
 
@@ -34,6 +35,26 @@ class BaseRepositoryImpl extends BaseRepository {
     final result = await dataSourceRepository.getUpcomingMovies();
     try {
       return Right(result);
+    } on ServerFailure catch (failure) {
+      return left(failure);
+    }
+  }
+
+  @override
+  Future<Either<Failure, DetailEntity>> getDetails(int movieId) async {
+    final result = await dataSourceRepository.getDetail(movieId);
+    try {
+      return right(result);
+    } on ServerFailure catch (failure) {
+      return left(failure);
+    }
+  }
+
+  @override
+  Future<Either<Failure, DetailEntity>> getTest() async {
+    final result = await dataSourceRepository.getTest(00);
+    try {
+      return right(result);
     } on ServerFailure catch (failure) {
       return left(failure);
     }

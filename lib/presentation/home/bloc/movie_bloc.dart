@@ -4,8 +4,8 @@ import 'package:mova/domain/usecase/get_top_rated_usecase.dart';
 import 'package:mova/domain/usecase/get_upcoming_usecase.dart';
 import 'package:mova/domain/usecase/now_playing_usecase.dart';
 
-import '../../core/util/enums.dart';
-import '../../domain/entities/movie_entity.dart';
+import '../../../core/util/enums.dart';
+import '../../../domain/entities/movie_entity.dart';
 
 part 'movie_event.dart';
 part 'movie_state.dart';
