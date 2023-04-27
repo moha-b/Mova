@@ -17,7 +17,7 @@ class MovieRemoteDataSource extends DataSourceRepository {
   Future<List<MovieModel>> getNowPlayingMovies() async {
     try {
       // Make HTTP GET request to fetch movie data
-      final response = await Dio().get(Api.NOW_PLAYING_URL);
+      final response = await Dio().get(Network.NOW_PLAYING_URL);
 
       // Check if response is successful
       if (response.statusCode == 200) {
@@ -41,7 +41,7 @@ class MovieRemoteDataSource extends DataSourceRepository {
   Future<List<MovieModel>> getTopRatedMovies() async {
     try {
       // Make HTTP GET request to fetch movie data
-      final response = await Dio().get(Api.TOP_RATED_URL);
+      final response = await Dio().get(Network.TOP_RATED_URL);
 
       // Check if response is successful
       if (response.statusCode == 200) {
@@ -65,7 +65,7 @@ class MovieRemoteDataSource extends DataSourceRepository {
   Future<List<MovieModel>> getUpcomingMovies() async {
     try {
       // Make HTTP GET request to fetch movie data
-      final response = await Dio().get(Api.UPCOMING_URL);
+      final response = await Dio().get(Network.UPCOMING_URL);
 
       // Check if response is successful
       if (response.statusCode == 200) {
@@ -86,7 +86,7 @@ class MovieRemoteDataSource extends DataSourceRepository {
 
   @override
   Future<DetailModel> getDetail(int movieId) async {
-    final response = await Dio().get(Api.detailUrl(movieId));
+    final response = await Dio().get(Network.detailUrl(movieId));
 
     try {
       if (response.statusCode == 200) {
@@ -103,7 +103,7 @@ class MovieRemoteDataSource extends DataSourceRepository {
 
   @override
   Future<DetailModel> getTest(int movieId) async {
-    final response = await Dio().get(Api.testUrl());
+    final response = await Dio().get(Network.testUrl());
     try {
       if (response.statusCode == 200) {
         final data = response.data as Map<String, dynamic>;

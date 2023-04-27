@@ -17,6 +17,7 @@ class MovieList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 170.h,
+      margin: EdgeInsets.only(bottom: 16.h),
       padding: EdgeInsets.only(left: 16.w),
       child: ListView.builder(
         shrinkWrap: true,
@@ -32,7 +33,7 @@ class MovieList extends StatelessWidget {
                 ));
           },
           child: ImageContainer(
-            imageUrl: Api.imageUrl(list[index].posterPath),
+            imageUrl: Network.imageUrl(list[index].posterPath),
             rate: list[index].voteAverage,
           ),
         ),

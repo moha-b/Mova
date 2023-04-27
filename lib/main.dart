@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mova/core/services/service_locator.dart';
+import 'package:mova/core/theme/dark_theme.dart';
 import 'package:mova/presentation/home/main_page.dart';
 
 void main() async {
@@ -19,9 +20,10 @@ class Mova extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: false,
       builder: (context, child) {
-        return const MaterialApp(
+        return MaterialApp(
+          theme: DarkTheme(),
           debugShowCheckedModeBanner: false,
-          home: MainPage(),
+          home: const MainPage(),
         );
       },
     );

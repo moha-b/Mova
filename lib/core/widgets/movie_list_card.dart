@@ -64,10 +64,10 @@ class MovieListCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 20.h),
-                      Texts.h2(string: "Title"),
+                      Texts.h2(string: "Title", context: context),
                       SizedBox(height: 40.h),
-                      Texts.h2(string: "Popularity"),
-                      Texts.h2(string: "Release"),
+                      Texts.h2(string: "Popularity", context: context),
+                      Texts.h2(string: "Release", context: context),
                     ],
                   ),
                 ),

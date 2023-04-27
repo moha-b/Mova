@@ -12,9 +12,9 @@ class ImageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 160.h,
-      width: 140.w,
+      width: 120.w,
       child: Stack(
         children: [
           ClipRRect(
@@ -40,7 +40,7 @@ class ImageContainer extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.0),
               decoration: BoxDecoration(
-                color: Colors.redAccent,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(4.0),
               ),
               child: Text(

@@ -24,9 +24,9 @@ class MainPage extends StatelessWidget {
           child: Column(
             children: const [
               NowPlayingComponent(),
-              TitleSection(title: "Top Rated", isLoading: true),
+              TitleSection(title: "Top Rated"),
               TopRatedComponent(),
-              TitleSection(title: "Upcoming", isLoading: true),
+              TitleSection(title: "Upcoming"),
               UpcomingComponent(),
             ],
           ),

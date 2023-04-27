@@ -32,7 +32,7 @@ class MovieDetailsComponent extends StatelessWidget {
             floating: false,
             leadingWidth: 25.w,
             pinned: true,
-            title: Texts.h2(string: movie!.title, color: Colors.white),
+            title: Texts.h2(string: movie!.title, context: context),
             stretch: true,
             // onStretchTrigger: (){
             //   // Refresh the page
@@ -68,7 +68,7 @@ class MovieDetailsComponent extends StatelessWidget {
                 StretchMode.fadeTitle
               ],
               background: CachedNetworkImage(
-                imageUrl: Api.imageUrl(movie!.backdropPath!),
+                imageUrl: Network.imageUrl(movie!.backdropPath!),
                 placeholder: (context, url) => Shimmer.fromColors(
                   baseColor: Colors.grey[300]!,
                   highlightColor: Colors.grey[100]!,
@@ -81,7 +81,7 @@ class MovieDetailsComponent extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            expandedHeight: 185.h,
+            expandedHeight: 300.h,
           );
         case RequestState.error:
           return const SliverToBoxAdapter(

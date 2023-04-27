@@ -15,13 +15,13 @@ class UpcomingComponent extends StatelessWidget {
     return BlocBuilder<MovieBloc, MovieState>(builder: (context, state) {
       switch (state.upcomingState) {
         case RequestState.loading:
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         case RequestState.loaded:
           return MovieList(list: state.upcomingMovies);
         case RequestState.error:
-          return Center(
+          return const Center(
             child: Text("Error"),
           );
       }

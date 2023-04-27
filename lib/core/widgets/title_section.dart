@@ -1,56 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../util/constance.dart';
 
 class TitleSection extends StatelessWidget {
   final String title;
-  final bool isLoading;
 
-  const TitleSection({Key? key, required this.title, required this.isLoading})
-      : super(key: key);
+  const TitleSection({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.w),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildTitle(context),
-          _buildSeeAll(context),
+          Texts.h2(string: title, context: context),
+          GestureDetector(
+            onTap: () {},
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Texts.bodySmall(string: "See all", context: context),
+                Icon(
+                  Iconsax.arrow_right_3,
+                  color: Theme.of(context).primaryColor,
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
-  }
-
-  Widget _buildTitle(BuildContext context) {
-    if (!isLoading) {
-      return Shimmer.fromColors(
-        baseColor: Colors.grey[300]!,
-        highlightColor: Colors.grey[100]!,
-        child: Texts.h2(string: title),
-      );
-    } else {
-      return Texts.h2(string: title);
-    }
-  }
-
-  Widget _buildSeeAll(BuildContext context) {
-    if (!isLoading) {
-      return Shimmer.fromColors(
-          baseColor: Colors.grey[300]!,
-          highlightColor: Colors.grey[100]!,
-          child: Text(
-            "See all",
-            style: TextStyle(color: Colors.red),
-          ));
-    } else {
-      return Text(
-        "See all",
-        style: TextStyle(color: Colors.red),
-      );
-    }
   }
 }

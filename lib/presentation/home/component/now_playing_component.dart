@@ -40,7 +40,7 @@ class NowPlayingComponent extends StatelessWidget {
                     },
                     child: CachedNetworkImage(
                       width: MediaQuery.of(context).size.width,
-                      imageUrl: Api.imageUrl(movie[index].posterPath),
+                      imageUrl: Network.imageUrl(movie[index].posterPath),
                       fit: BoxFit.cover,
                       placeholder: (context, url) => Shimmer.fromColors(
                         baseColor: Colors.grey[300]!,

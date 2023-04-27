@@ -26,14 +26,12 @@ class DetailPage extends StatelessWidget {
             SliverToBoxAdapter(
               child: TitleSection(
                 title: 'Studio',
-                isLoading: true,
               ),
             ),
             StudioComponent(),
             SliverToBoxAdapter(
               child: TitleSection(
                 title: 'Cast',
-                isLoading: true,
               ),
             ),
             CastComponent(),
