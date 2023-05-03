@@ -28,11 +28,7 @@ class Texts {
       Text(string, style: Theme.of(context).textTheme.displayLarge);
 
   static Text h2({required String string, required BuildContext context}) =>
-      Text(string,
-          style: Theme.of(context)
-              .textTheme
-              .displayMedium
-              ?.copyWith(fontSize: 23.sp));
+      Text(string, style: Theme.of(context).textTheme.displayMedium);
 
   static Text bodySmall(
           {required String string,

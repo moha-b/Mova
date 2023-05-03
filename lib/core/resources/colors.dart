@@ -9,6 +9,7 @@ class ColorPalette {
 
   static const Color darkPrimary = Color(0xffE21221);
   static const Color darkBackground = Color(0xff181A20);
+  static const Color darkForeground = Color(0xff202228);
   static const Color darkAccent = Color(0xff281920);
 
   static const Color spaceBackground = Color(0xff222831);

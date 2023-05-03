@@ -5,13 +5,13 @@ import 'genre_entity.dart';
 
 class DetailEntity extends Equatable {
   final String? backdropPath;
-  final List<GenreEntity>? genres;
+  final List<GenreEntity> genres;
   final int id;
   final String? originalLanguage;
   final String? overview;
   final double popularity;
   final String? posterPath;
-  final List<ProductionCompanyEntity>? productionCompanies;
+  final List<ProductionCompanyEntity> productionCompanies;
   final String? releaseDate;
   final int? revenue;
   final int? runtime;

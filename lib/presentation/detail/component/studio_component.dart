@@ -10,6 +10,7 @@ import 'package:shimmer/shimmer.dart';
 
 import '../../../core/util/enums.dart';
 import '../../../domain/entities/detail_entity.dart';
+import '../../../domain/entities/production_company_entity.dart';
 
 class StudioComponent extends StatelessWidget {
   const StudioComponent({
@@ -19,9 +20,16 @@ class StudioComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DetailEntity? movie;
+    List<ProductionCompanyEntity> studio = [];
+
     return BlocBuilder<DetailBloc, DetailState>(
       builder: (context, state) {
         movie = state.detailEntity;
+        try {
+          studio = movie!.productionCompanies
+              .where((company) => company.logoPath != null)
+              .toList();
+        } catch (e) {}
         switch (state.state) {
           case RequestState.loading:
             return const SliverToBoxAdapter(
@@ -34,55 +42,45 @@ class StudioComponent extends StatelessWidget {
                 padding: EdgeInsets.all(8.0.w),
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemCount: movie!.productionCompanies!.length,
-                  itemBuilder: (context, index) {
-                    if (movie!.productionCompanies![index].logoPath == null) {
-                      return SizedBox();
-                    } else {
-                      return SizedBox(
-                        width: 100.w,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 90.h,
-                              width: 90.w,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0.r),
-                                child: Container(
-                                  padding: EdgeInsets.all(8.w),
-                                  color: ColorPalette.lightAccent,
-                                  child: CachedNetworkImage(
-                                    imageUrl: Network.imageUrl(movie!
-                                            .productionCompanies?[index]
-                                            .logoPath ??
-                                        ''),
-                                    placeholder: (context, url) =>
-                                        Shimmer.fromColors(
-                                      baseColor: Colors.grey[300]!,
-                                      highlightColor: Colors.grey[100]!,
-                                      child: Container(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    fit: BoxFit.contain,
+                  itemCount: studio.length,
+                  itemBuilder: (context, index) => SizedBox(
+                    width: 100.w,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 90.h,
+                          width: 90.w,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0.r),
+                            child: Container(
+                              padding: EdgeInsets.all(8.w),
+                              color: ColorPalette.darkForeground,
+                              child: CachedNetworkImage(
+                                imageUrl:
+                                    Network.imageUrl(studio[index].logoPath!),
+                                placeholder: (context, url) =>
+                                    Shimmer.fromColors(
+                                  baseColor: Colors.grey[300]!,
+                                  highlightColor: Colors.grey[100]!,
+                                  child: Container(
+                                    color: Colors.white,
                                   ),
                                 ),
+                                fit: BoxFit.contain,
                               ),
                             ),
-                            Container(
-                              padding: EdgeInsets.only(left: 8.w, top: 8.h),
-                              child: Text(
-                                movie!.productionCompanies?[index].name ??
-                                    'Unknown',
-                                style:
-                                    TextStyle(overflow: TextOverflow.ellipsis),
-                              ),
-                            )
-                          ],
+                          ),
                         ),
-                      );
-                    }
-                  },
+                        Container(
+                          padding: EdgeInsets.only(left: 8.w, top: 8.h),
+                          child: Text(
+                            studio[index].name,
+                            style: TextStyle(overflow: TextOverflow.ellipsis),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                   separatorBuilder: (BuildContext context, int index) =>
                       SizedBox(width: 10.w),
                 ),

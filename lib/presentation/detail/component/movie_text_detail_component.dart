@@ -40,53 +40,52 @@ class MovieTextDetailComponent extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         child:
                             Texts.h1(string: movie!.title, context: context)),
-                    Padding(
-                      padding: EdgeInsets.all(8.w),
-                      child: Wrap(
-                        children: [
-                          Row(
-                            children: [
-                              _showRate(movie: movie),
-                              Container(
-                                margin: EdgeInsets.symmetric(horizontal: 8.w),
-                                child: Text("|"),
-                              ),
-                              _showRelease(movie: movie),
-                              SizedBox(
-                                width: 16.w,
-                              ),
-                              RoundedContainer(
-                                  radius: 10,
-                                  horizontal: 10.w,
-                                  vertical: 5.h,
-                                  child: Texts.bodySmall(
-                                      string: movie!.originalLanguage!,
-                                      context: context)),
-                              SizedBox(
-                                width: 16.w,
-                              ),
-                              RoundedContainer(
-                                  radius: 10,
-                                  horizontal: 10.w,
-                                  vertical: 5.h,
-                                  child: Texts.bodySmall(
-                                      string: _showTime(movie: movie),
-                                      context: context)),
-                              SizedBox(
-                                width: 16.w,
-                              ),
-                              RoundedContainer(
-                                  radius: 10,
-                                  horizontal: 10.w,
-                                  vertical: 5.h,
-                                  color: Colors.yellow,
-                                  child: Texts.bodySmall(
-                                      string: _showRevenue(movie: movie),
-                                      context: context,
-                                      color: Colors.yellow)),
-                            ],
-                          ),
-                        ],
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.w),
+                        child: Row(
+                          children: [
+                            _showRate(movie: movie),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 8.w),
+                              child: Text("|"),
+                            ),
+                            _showRelease(movie: movie),
+                            SizedBox(
+                              width: 16.w,
+                            ),
+                            RoundedContainer(
+                                radius: 10,
+                                horizontal: 10.w,
+                                vertical: 5.h,
+                                child: Texts.bodySmall(
+                                    string: movie!.originalLanguage!,
+                                    context: context)),
+                            SizedBox(
+                              width: 16.w,
+                            ),
+                            RoundedContainer(
+                                radius: 10,
+                                horizontal: 10.w,
+                                vertical: 5.h,
+                                child: Texts.bodySmall(
+                                    string: _showTime(movie: movie),
+                                    context: context)),
+                            SizedBox(
+                              width: 16.w,
+                            ),
+                            RoundedContainer(
+                                radius: 10,
+                                horizontal: 10.w,
+                                vertical: 5.h,
+                                color: Colors.yellow,
+                                child: Texts.bodySmall(
+                                    string: _showRevenue(movie: movie),
+                                    context: context,
+                                    color: Colors.yellow)),
+                          ],
+                        ),
                       ),
                     ),
                     Text("Genres : ${_showGenres(movie!.genres!)}"),
@@ -137,6 +136,8 @@ class MovieTextDetailComponent extends StatelessWidget {
   Row _showRate({DetailEntity? movie}) {
     double rate = movie!.voteAverage.roundToDouble();
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SvgPicture.asset(
           "assets/icons/star.svg",
@@ -146,17 +147,22 @@ class MovieTextDetailComponent extends StatelessWidget {
         SizedBox(
           width: 8.w,
         ),
-        Text(rate.toString()),
+        Text(rate.toString() == "0.0" ? "Undefined" : rate.toString()),
       ],
     );
   }
 
   String _showRevenue({DetailEntity? movie}) {
     int amount = movie!.revenue!;
-    var formatter = NumberFormat.compact(
-      locale: 'en_US',
-    );
-    String formattedAmount = formatter.format(amount);
-    return formattedAmount;
+    if (amount == 0) {
+      return "Undefined";
+    } else {
+      var formatter = NumberFormat.compact(
+        locale: 'en_US',
+      );
+      String formattedAmount = formatter.format(amount);
+      print("formattedAmount :: $formattedAmount");
+      return formattedAmount;
+    }
   }
 }

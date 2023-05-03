@@ -16,7 +16,8 @@ class MovieList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 170.h,
+      height: 180.h,
+      color: Colors.white,
       margin: EdgeInsets.only(bottom: 16.h),
       padding: EdgeInsets.only(left: 16.w),
       child: ListView.builder(
@@ -32,9 +33,14 @@ class MovieList extends StatelessWidget {
                   builder: (context) => DetailPage(movieId: list[index].id),
                 ));
           },
-          child: ImageContainer(
-            imageUrl: Network.imageUrl(list[index].posterPath),
-            rate: list[index].voteAverage,
+          child: Column(
+            children: [
+              ImageContainer(
+                imageUrl: Network.imageUrl(list[index].posterPath),
+                rate: list[index].voteAverage,
+              ),
+              Texts.bodySmall(string: list[index].title, context: context)
+            ],
           ),
         ),
       ),
