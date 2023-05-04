@@ -7,7 +7,6 @@ import 'package:mova/core/resources/colors.dart';
 import 'package:mova/core/widgets/rounded_container.dart';
 import 'package:mova/domain/entities/detail_entity.dart';
 
-import '../../../core/util/constance.dart';
 import '../../../core/util/enums.dart';
 import '../../../domain/entities/genre_entity.dart';
 import '../bloc/detail_bloc.dart';
@@ -35,11 +34,12 @@ class MovieTextDetailComponent extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    //AnimateText(text: movie!.title),
                     SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
-                        child:
-                            Texts.h1(string: movie!.title, context: context)),
+                        child: Text(
+                          movie!.title,
+                          style: Theme.of(context).textTheme.displayMedium,
+                        )),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Padding(
@@ -49,7 +49,7 @@ class MovieTextDetailComponent extends StatelessWidget {
                             _showRate(movie: movie),
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: 8.w),
-                              child: Text("|"),
+                              child: const Text("|"),
                             ),
                             _showRelease(movie: movie),
                             SizedBox(
@@ -59,9 +59,10 @@ class MovieTextDetailComponent extends StatelessWidget {
                                 radius: 10,
                                 horizontal: 10.w,
                                 vertical: 5.h,
-                                child: Texts.bodySmall(
-                                    string: movie!.originalLanguage!,
-                                    context: context)),
+                                child: Text(
+                                  movie!.originalLanguage!,
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                )),
                             SizedBox(
                               width: 16.w,
                             ),
@@ -69,9 +70,10 @@ class MovieTextDetailComponent extends StatelessWidget {
                                 radius: 10,
                                 horizontal: 10.w,
                                 vertical: 5.h,
-                                child: Texts.bodySmall(
-                                    string: _showTime(movie: movie),
-                                    context: context)),
+                                child: Text(
+                                  _showTime(movie: movie),
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                )),
                             SizedBox(
                               width: 16.w,
                             ),
@@ -80,19 +82,25 @@ class MovieTextDetailComponent extends StatelessWidget {
                                 horizontal: 10.w,
                                 vertical: 5.h,
                                 color: Colors.yellow,
-                                child: Texts.bodySmall(
-                                    string: _showRevenue(movie: movie),
-                                    context: context,
-                                    color: Colors.yellow)),
+                                child: Text(
+                                  _showRevenue(movie: movie),
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                )),
                           ],
                         ),
                       ),
                     ),
-                    Text("Genres : ${_showGenres(movie!.genres!)}"),
+                    Text(
+                      "Genres : ${_showGenres(movie!.genres!)}",
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                     SizedBox(
                       height: 8.h,
                     ),
-                    Text(movie!.overview!),
+                    Text(
+                      movie!.overview!,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                   ],
                 ),
               ),

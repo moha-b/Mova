@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/util/enums.dart';
 import '../../../core/widgets/movie_list.dart';
+import '../../../core/widgets/title_section.dart';
 import '../bloc/movie_bloc.dart';
 
 class UpcomingComponent extends StatelessWidget {
@@ -19,7 +20,12 @@ class UpcomingComponent extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         case RequestState.loaded:
-          return MovieList(list: state.upcomingMovies);
+          return Column(
+            children: [
+              TitleSection(title: "Upcoming", seeAllList: state.upcomingMovies),
+              MovieList(list: state.upcomingMovies),
+            ],
+          );
         case RequestState.error:
           return const Center(
             child: Text("Error"),

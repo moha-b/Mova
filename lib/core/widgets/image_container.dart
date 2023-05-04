@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ImageContainer extends StatelessWidget {
@@ -12,9 +11,7 @@ class ImageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 160.h,
-      width: 120.w,
+    return SizedBox(
       child: Stack(
         children: [
           ClipRRect(
@@ -29,7 +26,7 @@ class ImageContainer extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              errorWidget: (context, url, error) => Center(
+              errorWidget: (context, url, error) => const Center(
                 child: Icon(Icons.error),
               ),
             ),
@@ -38,14 +35,15 @@ class ImageContainer extends StatelessWidget {
             top: 8.0,
             left: 8.0,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.0),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(4.0),
               ),
               child: Text(
                 "$rate",
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
             ),
           ),

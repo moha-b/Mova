@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/util/enums.dart';
 import '../../../core/widgets/movie_list.dart';
+import '../../../core/widgets/title_section.dart';
 import '../bloc/movie_bloc.dart';
 
 class TopRatedComponent extends StatelessWidget {
@@ -19,7 +20,13 @@ class TopRatedComponent extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         case RequestState.loaded:
-          return MovieList(list: state.topRatedMovies);
+          return Column(
+            children: [
+              TitleSection(
+                  title: "Top Rated", seeAllList: state.topRatedMovies),
+              MovieList(list: state.topRatedMovies),
+            ],
+          );
         case RequestState.error:
           return Center(
             child: Text("Error"),

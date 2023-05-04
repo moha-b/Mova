@@ -32,7 +32,10 @@ class MovieDetailsComponent extends StatelessWidget {
             floating: false,
             leadingWidth: 25.w,
             pinned: true,
-            title: Texts.h2(string: movie!.title, context: context),
+            title: Text(
+              movie!.title,
+              style: Theme.of(context).textTheme.displayMedium,
+            ),
             stretch: true,
             // onStretchTrigger: (){
             //   // Refresh the page

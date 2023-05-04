@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mova/core/services/service_locator.dart';
-import 'package:mova/core/widgets/title_section.dart';
 
 import 'bloc/movie_bloc.dart';
 import 'component/now_playing_component.dart';
@@ -24,9 +23,7 @@ class MainPage extends StatelessWidget {
           child: Column(
             children: const [
               NowPlayingComponent(),
-              TitleSection(title: "Top Rated"),
               TopRatedComponent(),
-              TitleSection(title: "Upcoming"),
               UpcomingComponent(),
             ],
           ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 // class Api {
 //   String _BASE_URL = "https://api.themoviedb.org/3/movie";
@@ -21,28 +20,4 @@ class Network {
   static String detailUrl(int movieId) => "$BASE_URL/$movieId$KEY";
   static String testUrl() =>
       "https://api.themoviedb.org/3/movie/868759?api_key=15cc2d06189e5b776834afe0bdef40ba";
-}
-
-class Texts {
-  static Text h1({required String string, required BuildContext context}) =>
-      Text(string, style: Theme.of(context).textTheme.displayLarge);
-
-  static Text h2({required String string, required BuildContext context}) =>
-      Text(string, style: Theme.of(context).textTheme.displayMedium);
-
-  static Text bodySmall(
-          {required String string,
-          required BuildContext context,
-          Color? color}) =>
-      Text(string,
-          style: Theme.of(context)
-              .textTheme
-              .bodySmall
-              ?.copyWith(fontSize: 11.sp, color: color));
-
-  static Text hint({required String string, Color? color}) => Text(string,
-      style: GoogleFonts.fredokaOne(
-        textStyle: TextStyle(
-            color: color ?? Colors.black.withOpacity(0.7), fontSize: 13.sp),
-      ));
 }

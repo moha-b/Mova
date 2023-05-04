@@ -8,29 +8,45 @@ ThemeData darkTheme = ThemeData(
   scaffoldBackgroundColor: ColorPalette.darkBackground,
   colorScheme: ColorScheme.fromSwatch(accentColor: ColorPalette.darkAccent),
   textTheme: TextTheme(
-    displayLarge: GoogleFonts.roboto(
-        fontSize: 40.sp,
-        color: ColorPalette.darkPrimary,
-        textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
-    displayMedium: GoogleFonts.roboto(
-        fontSize: 35.sp,
-        color: ColorPalette.darkPrimary,
-        textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
-    displaySmall: GoogleFonts.roboto(
-        fontSize: 30.sp,
-        color: ColorPalette.darkPrimary,
-        textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
-    bodyLarge: GoogleFonts.roboto(
-        fontSize: 25.sp,
-        color: Colors.white,
-        textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
-    bodyMedium: GoogleFonts.roboto(
-        fontSize: 20.sp,
-        color: Colors.white,
-        textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
-    bodySmall: GoogleFonts.roboto(
-        fontSize: 15.sp,
-        color: Colors.white,
-        textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
+    displayLarge: GoogleFonts.nunito(
+      fontSize: 35.sp,
+      fontWeight: FontWeight.w300,
+      color: ColorPalette.darkPrimary,
+    ),
+    displayMedium: GoogleFonts.nunito(
+      fontSize: 30.sp,
+      fontWeight: FontWeight.w300,
+      color: ColorPalette.darkPrimary,
+    ),
+    displaySmall: GoogleFonts.nunito(
+      fontSize: 25.sp,
+      fontWeight: FontWeight.w400,
+      color: ColorPalette.darkPrimary,
+    ),
+    bodyLarge: GoogleFonts.nunito(
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      color: ColorPalette.darkPrimary,
+    ),
+    bodyMedium: GoogleFonts.nunito(
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      color: ColorPalette.darkPrimary,
+    ),
+    labelLarge: GoogleFonts.nunito(
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+      color: ColorPalette.darkPrimary,
+    ),
+    bodySmall: GoogleFonts.nunito(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: ColorPalette.darkPrimary,
+    ),
+    labelSmall: GoogleFonts.nunito(
+      fontSize: 10,
+      fontWeight: FontWeight.w400,
+      color: ColorPalette.darkPrimary,
+    ),
   ),
 );

@@ -15,12 +15,9 @@ class MovieList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 180.h,
-      color: Colors.white,
-      margin: EdgeInsets.only(bottom: 16.h),
-      padding: EdgeInsets.only(left: 16.w),
-      child: ListView.builder(
+    return SizedBox(
+      height: 210.h,
+      child: ListView.separated(
         shrinkWrap: true,
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
@@ -33,16 +30,29 @@ class MovieList extends StatelessWidget {
                   builder: (context) => DetailPage(movieId: list[index].id),
                 ));
           },
-          child: Column(
-            children: [
-              ImageContainer(
-                imageUrl: Network.imageUrl(list[index].posterPath),
-                rate: list[index].voteAverage,
-              ),
-              Texts.bodySmall(string: list[index].title, context: context)
-            ],
+          child: SizedBox(
+            width: 120.w,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ImageContainer(
+                  imageUrl: Network.imageUrl(list[index].posterPath),
+                  rate: list[index].voteAverage,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.w, right: 2.w, top: 8.h),
+                  child: Text(
+                    list[index].title,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    maxLines: 1,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
+        separatorBuilder: (BuildContext context, int index) =>
+            SizedBox(width: 8.w),
       ),
     );
   }
