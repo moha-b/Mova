@@ -1,5 +1,5 @@
 # Mova
-
+movie app demonstrates how the clean architecture and BLoC pattern can be used to build a robust and scalable mobile application that can handle multiple APIs with different endpoints. It showcases how the separation of concerns, reactive programming, and modularization can simplify complex development tasks and make code easier to maintain and extend.
 
 ## Techniques used 🛠️    
 
