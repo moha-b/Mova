@@ -27,7 +27,7 @@ class TitleSection extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SeeAll(
+                    builder: (context) => SeeAllMovies(
                       title: title,
                       list: seeAllList,
                     ),

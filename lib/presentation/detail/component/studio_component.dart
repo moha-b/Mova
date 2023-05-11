@@ -41,7 +41,7 @@ class StudioComponent extends StatelessWidget {
                 children: [
                   TitleSection(
                     title: 'Studio',
-                    seeAllList: studio,
+                    seeAllList: [],
                   ),
                   Container(
                     height: 140.h,
