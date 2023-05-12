@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 // class Api {
 //   String _BASE_URL = "https://api.themoviedb.org/3/movie";
 //   String _KEY = "?api_key=15cc2d06189e5b776834afe0bdef40ba";

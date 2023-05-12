@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../resources/colors.dart';
 
 ThemeData lightTheme = ThemeData(
+  primaryColor: ColorPalette.darkPrimary,
   textTheme: TextTheme(
     displayLarge: GoogleFonts.nunito(
-        fontSize: 35.sp,
+        fontSize: 35,
         fontWeight: FontWeight.w300,
         textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
     displayMedium: GoogleFonts.nunito(
-        fontSize: 30.sp,
+        fontSize: 30,
         fontWeight: FontWeight.w600,
         textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
     displaySmall: GoogleFonts.nunito(
-        fontSize: 25.sp,
+        fontSize: 25,
         fontWeight: FontWeight.w400,
         textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
     bodyLarge: GoogleFonts.nunito(
