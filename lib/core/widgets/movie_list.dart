@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mova/core/util/constance.dart';
 import 'package:mova/domain/entities/movie_entity.dart';
-import 'package:mova/presentation/detail/detail_page.dart';
 
 import 'image_container.dart';
 
@@ -23,11 +22,11 @@ class MovieList extends StatelessWidget {
         itemCount: list.length,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailPage(movieId: list[index].id),
-                ));
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //       builder: (context) => DetailPage(movieId: list[index].id),
+            //     ));
           },
           child: SizedBox(
             width: 120,

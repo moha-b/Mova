@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mova/core/services/service_locator.dart';
 import 'package:mova/presentation/bloc/theme_bloc.dart';
-import 'package:mova/presentation/home/main_page.dart';
+import 'package:mova/presentation/detail/detail_page.dart';
 
 void main() async {
   ServicesLocator().init();
@@ -21,7 +21,7 @@ class Mova extends StatelessWidget {
           return MaterialApp(
             theme: state.themeData,
             debugShowCheckedModeBanner: false,
-            home: const MainPage(),
+            home: DetailPage(),
           );
         },
       ),

@@ -32,7 +32,7 @@ String showTime({DetailEntity? movie}) {
   return '${hours}h ${remainingMinutes}m';
 }
 
-Row _showRate({DetailEntity? movie}) {
+Row showRate({DetailEntity? movie}) {
   double rate = movie!.voteAverage.roundToDouble();
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +51,7 @@ Row _showRate({DetailEntity? movie}) {
   );
 }
 
-String _showRevenue({DetailEntity? movie}) {
+String showRevenue({DetailEntity? movie}) {
   int amount = movie!.revenue!;
   if (amount == 0) {
     return "Undefined";
