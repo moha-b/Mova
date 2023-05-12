@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mova/core/resources/colors.dart';
 
@@ -9,17 +8,17 @@ ThemeData darkTheme = ThemeData(
   colorScheme: ColorScheme.fromSwatch(accentColor: ColorPalette.darkAccent),
   textTheme: TextTheme(
     displayLarge: GoogleFonts.nunito(
-      fontSize: 35.sp,
+      fontSize: 35,
       fontWeight: FontWeight.w300,
       color: ColorPalette.darkPrimary,
     ),
     displayMedium: GoogleFonts.nunito(
-      fontSize: 30.sp,
+      fontSize: 30,
       fontWeight: FontWeight.w300,
       color: ColorPalette.darkPrimary,
     ),
     displaySmall: GoogleFonts.nunito(
-      fontSize: 25.sp,
+      fontSize: 25,
       fontWeight: FontWeight.w400,
       color: ColorPalette.darkPrimary,
     ),
