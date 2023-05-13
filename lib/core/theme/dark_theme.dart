@@ -21,7 +21,7 @@ ThemeData darkTheme = ThemeData(
     displaySmall: GoogleFonts.nunito(
       fontSize: 25,
       fontWeight: FontWeight.w400,
-      color: ColorPalette.darkPrimary,
+      color: Colors.white,
     ),
     bodyLarge: GoogleFonts.nunito(
       fontSize: 16,
@@ -31,7 +31,7 @@ ThemeData darkTheme = ThemeData(
     bodyMedium: GoogleFonts.nunito(
       fontSize: 14,
       fontWeight: FontWeight.w400,
-      color: ColorPalette.darkPrimary,
+      color: Colors.white,
     ),
     labelLarge: GoogleFonts.nunito(
       fontSize: 14,
@@ -41,7 +41,7 @@ ThemeData darkTheme = ThemeData(
     bodySmall: GoogleFonts.nunito(
       fontSize: 12,
       fontWeight: FontWeight.w400,
-      color: ColorPalette.darkPrimary,
+      color: Colors.white,
     ),
     labelSmall: GoogleFonts.nunito(
       fontSize: 10,

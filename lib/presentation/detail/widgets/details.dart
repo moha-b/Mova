@@ -29,7 +29,7 @@ class TextDetailsSection extends StatelessWidget {
                   ),
                   buildPropertySection(state, context),
                   buildButtonsSection(context),
-                  Text(showGenres(state.detailEntity.genres)),
+                  Text("Genres : ${showGenres(state.detailEntity.genres)}"),
                   const SizedBox(
                     height: 8,
                   ),
@@ -61,6 +61,7 @@ class TextDetailsSection extends StatelessWidget {
             text: state.detailEntity.productionCountries.isNotEmpty
                 ? state.detailEntity.productionCountries[0]["name"]
                 : "Undefined",
+            textColor: Theme.of(context).primaryColor,
             iconButton: false,
             border: true,
             borderRadius: 5,
@@ -68,11 +69,13 @@ class TextDetailsSection extends StatelessWidget {
           ),
           BuildButton(
               text: showTime(movie: state.detailEntity),
+              textColor: Theme.of(context).primaryColor,
               iconButton: false,
               border: true,
               borderRadius: 5),
           BuildButton(
             text: showRevenue(movie: state.detailEntity),
+            textColor: Theme.of(context).primaryColor,
             iconButton: false,
             border: true,
             borderRadius: 5,
@@ -124,9 +127,7 @@ class TextDetailsSection extends StatelessWidget {
           child: Text(
             title,
             style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                color: Colors.black,
-                overflow: TextOverflow.ellipsis,
-                fontWeight: FontWeight.w600),
+                overflow: TextOverflow.ellipsis, fontWeight: FontWeight.w600),
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -136,7 +137,7 @@ class TextDetailsSection extends StatelessWidget {
               onTap: () {},
               child: SvgPicture.asset(
                 "assets/icons/bookmark.svg",
-                color: Colors.black,
+                color: Theme.of(context).textTheme.displaySmall?.color,
                 height: 17,
               ),
             ),
@@ -146,7 +147,7 @@ class TextDetailsSection extends StatelessWidget {
                 onTap: () {},
                 child: SvgPicture.asset(
                   "assets/icons/paper-plane.svg",
-                  color: Colors.black,
+                  color: Theme.of(context).textTheme.displaySmall?.color,
                   height: 17,
                 ),
               ),

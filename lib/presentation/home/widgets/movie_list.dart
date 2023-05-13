@@ -35,9 +35,7 @@ class MovieListWidget extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .displaySmall
-                            ?.copyWith(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600),
+                            ?.copyWith(fontWeight: FontWeight.w600),
                       ),
                       Text(
                         "See all",
@@ -94,9 +92,7 @@ class MovieListWidget extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .displaySmall
-                            ?.copyWith(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600),
+                            ?.copyWith(fontWeight: FontWeight.w600),
                       ),
                       Text(
                         "See all",

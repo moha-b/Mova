@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../resources/colors.dart';
 
-ThemeData lightTheme = ThemeData(
+ThemeData creamTheme = ThemeData(
   primaryColor: ColorPalette.creamPrimary,
   scaffoldBackgroundColor: ColorPalette.creamBackground,
   textTheme: TextTheme(

@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/theme/cream_theme.dart';
 import '../../core/theme/dark_theme.dart';
-import '../../core/theme/light_theme.dart';
 import '../../core/util/enums.dart';
 
 part 'theme_event.dart';
@@ -17,7 +17,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
           emit(ThemeState(themeData: darkTheme));
           break;
         case AppTheme.lightTheme:
-          emit(ThemeState(themeData: lightTheme));
+          emit(ThemeState(themeData: creamTheme));
           break;
         default:
           emit(ThemeState(themeData: darkTheme));

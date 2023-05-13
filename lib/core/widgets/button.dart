@@ -59,9 +59,10 @@ class BuildButton extends StatelessWidget {
   Text buildText({required context, required String text, Color? color}) {
     return Text(
       text,
-      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-          color: color ?? Theme.of(context).primaryColor,
-          fontWeight: FontWeight.bold),
+      style: Theme.of(context)
+          .textTheme
+          .bodySmall
+          ?.copyWith(fontWeight: FontWeight.bold, color: color),
     );
   }
 
