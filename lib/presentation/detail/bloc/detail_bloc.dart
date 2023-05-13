@@ -12,14 +12,11 @@ part 'detail_state.dart';
 class DetailBloc extends Bloc<DetailEvent, DetailState> {
   GetDetailsUseCase getDetailsUseCase;
 
-  DetailBloc(this.getDetailsUseCase)
-      : super(const DetailState(state: RequestState.loading)) {
+  DetailBloc(this.getDetailsUseCase) : super(InitialState()) {
     on<GetDetailEvent>((event, emit) async {
       final result = await getDetailsUseCase.execute(event.movieId);
-      result.fold(
-          (failure) => emit(state.copyWith(state: RequestState.error)),
-          (details) => emit(state.copyWith(
-              detailEntity: details, state: RequestState.loaded)));
+      result.fold((failure) => emit(state),
+          (details) => emit(LoadedState(detailEntity: details)));
     });
   }
 }

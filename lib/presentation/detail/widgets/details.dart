@@ -11,49 +11,57 @@ class Details extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DetailBloc, DetailState>(
       builder: (context, state) {
-        return SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                buildTitle(context),
-                SizedBox(
-                  height: 8,
-                ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      buildDataAndRate(context),
-                      SizedBox(
-                        width: 16,
-                      ),
-                      buildOutlinedContainer(context: context, text: "13"),
-                      SizedBox(
-                        width: 16,
-                      ),
-                      buildOutlinedContainer(context: context, text: "Country"),
-                      SizedBox(
-                        width: 16,
-                      ),
-                      buildOutlinedContainer(context: context, text: "Subtitle")
-                    ],
+        if (state is LoadedState) {
+          return SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  buildTitle(context: context, title: state.detailEntity.title),
+                  SizedBox(
+                    height: 8,
                   ),
-                ),
-                buildButtons(context),
-                SizedBox(
-                  height: 16,
-                ),
-                const Text("Genres"),
-                SizedBox(
-                  height: 8,
-                ),
-                const Text("OverView"),
-              ],
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        buildDataAndRate(context),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        buildOutlinedContainer(context: context, text: "13"),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        buildOutlinedContainer(
+                            context: context, text: "Country"),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        buildOutlinedContainer(
+                            context: context, text: "Subtitle")
+                      ],
+                    ),
+                  ),
+                  buildButtons(context),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  const Text("Genres"),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  const Text("OverView"),
+                ],
+              ),
             ),
-          ),
-        );
+          );
+        } else {
+          return SliverToBoxAdapter(
+            child: Center(child: CircularProgressIndicator()),
+          );
+        }
       },
     );
   }
@@ -180,16 +188,19 @@ class Details extends StatelessWidget {
     );
   }
 
-  Row buildTitle(BuildContext context) {
+  Row buildTitle({required BuildContext context, required String title}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          "Hell Paradise",
-          style: Theme.of(context)
-              .textTheme
-              .displayMedium
-              ?.copyWith(color: Colors.black),
+        Expanded(
+          child: Text(
+            title,
+            style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                color: Colors.black,
+                overflow: TextOverflow.ellipsis,
+                fontWeight: FontWeight.w600),
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
         Row(
           children: [

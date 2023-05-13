@@ -15,4 +15,8 @@ class ProductionCompanyModel extends ProductionCompanyEntity {
       required super.logoPath,
       required super.name,
       required super.originCountry});
+
+  static List<ProductionCompanyModel> from(List<dynamic> json) {
+    return json.map((e) => ProductionCompanyModel.fromJson(e)).toList();
+  }
 }
