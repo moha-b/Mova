@@ -1,19 +1,22 @@
 part of 'detail_bloc.dart';
 
 @immutable
-class DetailState extends Equatable {
-  final DetailEntity? detailEntity;
-  final RequestState state;
-  const DetailState({required this.state, this.detailEntity});
+abstract class DetailState extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
 
-  DetailState copyWith({
+class InitialState extends DetailState {}
+
+class LoadedState extends DetailState {
+  final DetailEntity detailEntity;
+
+  LoadedState({required this.detailEntity});
+
+  LoadedState copyWith({
     DetailEntity? detailEntity,
     required RequestState state,
   }) {
-    return DetailState(
-        detailEntity: detailEntity ?? this.detailEntity, state: state);
+    return LoadedState(detailEntity: detailEntity ?? this.detailEntity);
   }
-
-  @override
-  List<Object?> get props => [detailEntity];
 }

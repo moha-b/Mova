@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mova/core/widgets/image_container.dart';
+import 'package:mova/presentation/detail/detail_page.dart';
 import 'package:mova/presentation/home/bloc/movie_bloc.dart';
 
 class MovieListWidget extends StatelessWidget {
@@ -54,9 +55,21 @@ class MovieListWidget extends StatelessWidget {
                   child: ListView.separated(
                       padding: const EdgeInsets.only(left: 16.0),
                       scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => ImageContainer(
-                          imageUrl: state.topRatedMovies[index].posterPath,
-                          rate: state.topRatedMovies[index].voteAverage),
+                      itemBuilder: (context, index) => GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailPage(
+                                      movieId: state.topRatedMovies[index].id,
+                                    ),
+                                  ));
+                            },
+                            child: ImageContainer(
+                                imageUrl:
+                                    state.topRatedMovies[index].posterPath,
+                                rate: state.topRatedMovies[index].voteAverage),
+                          ),
                       separatorBuilder: (context, index) => const SizedBox(
                             width: 8.0,
                           ),
@@ -101,9 +114,21 @@ class MovieListWidget extends StatelessWidget {
                   child: ListView.separated(
                       padding: const EdgeInsets.only(left: 16.0),
                       scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => ImageContainer(
-                          imageUrl: state.upcomingMovies[index].posterPath,
-                          rate: state.upcomingMovies[index].voteAverage),
+                      itemBuilder: (context, index) => GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailPage(
+                                      movieId: state.upcomingMovies[index].id,
+                                    ),
+                                  ));
+                            },
+                            child: ImageContainer(
+                                imageUrl:
+                                    state.upcomingMovies[index].posterPath,
+                                rate: state.upcomingMovies[index].voteAverage),
+                          ),
                       separatorBuilder: (context, index) => const SizedBox(
                             width: 8.0,
                           ),
