@@ -5,7 +5,8 @@ import 'package:mova/core/resources/colors.dart';
 ThemeData darkTheme = ThemeData(
   primaryColor: ColorPalette.darkPrimary,
   scaffoldBackgroundColor: ColorPalette.darkBackground,
-  colorScheme: ColorScheme.fromSwatch(accentColor: ColorPalette.darkAccent),
+  colorScheme:
+      ColorScheme.fromSwatch().copyWith(secondary: ColorPalette.darkForeground),
   textTheme: TextTheme(
     displayLarge: GoogleFonts.nunito(
       fontSize: 35,

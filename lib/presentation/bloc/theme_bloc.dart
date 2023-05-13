@@ -10,7 +10,7 @@ part 'theme_event.dart';
 part 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
-  ThemeBloc() : super(ThemeState(themeData: lightTheme)) {
+  ThemeBloc() : super(ThemeState(themeData: darkTheme)) {
     on<ThemeEvent>((event, emit) {
       switch (event.theme) {
         case AppTheme.darkTheme:

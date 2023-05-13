@@ -4,7 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../resources/colors.dart';
 
 ThemeData lightTheme = ThemeData(
-  primaryColor: ColorPalette.darkPrimary,
+  primaryColor: ColorPalette.creamPrimary,
+  scaffoldBackgroundColor: ColorPalette.creamBackground,
   textTheme: TextTheme(
     displayLarge: GoogleFonts.nunito(
         fontSize: 35,
@@ -40,4 +41,6 @@ ThemeData lightTheme = ThemeData(
         fontWeight: FontWeight.w400,
         textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
   ),
+  colorScheme: ColorScheme.fromSwatch()
+      .copyWith(secondary: ColorPalette.creamForeground),
 );

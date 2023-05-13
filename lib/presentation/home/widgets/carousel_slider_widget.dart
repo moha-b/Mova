@@ -59,8 +59,9 @@ class CarouselSliderWidget extends StatelessWidget {
                           ),
                           Row(
                             children: [
+                              showRelease(movie: movie, context: context),
                               Text(
-                                showRelease(movie),
+                                "",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium
