@@ -5,6 +5,7 @@ import 'package:mova/presentation/detail/widgets/app_bar.dart';
 import 'package:mova/presentation/detail/widgets/cast.dart';
 import 'package:mova/presentation/detail/widgets/details.dart';
 import 'package:mova/presentation/detail/widgets/studio.dart';
+import 'package:mova/presentation/detail/widgets/tab_bar.dart';
 
 import '../../core/services/service_locator.dart';
 
@@ -27,6 +28,7 @@ class DetailPage extends StatelessWidget {
             TextDetailsSection(),
             CastSection(),
             StudioSection(),
+            TabBarSection(),
           ],
         ),
       ),
