@@ -10,12 +10,12 @@ class ColorPalette {
   static const Color darkPrimary = Color(0xffE21221);
   static const Color darkBackground = Color(0xff181A20);
   static const Color darkForeground = Color(0xff202228);
-  static const Color darkAccent = Color(0xff281920);
+  static const Color darkSecondary = Color(0xff281920);
 
   static const Color spaceBackground = Color(0xff222831);
-  static const Color spaceSecondary = Color(0xff393E46);
-  static const Color spaceAccent = Color(0xff00ADB5);
-  static const Color spaceText = Color(0xffEEEEEE);
+  static const Color spaceForeground = Color(0xff393E46);
+  static const Color spacePrimary = Color(0xff00ADB5);
+  static const Color spaceSecondary = Color(0xffEEEEEE);
 
   static const Color creamBackground = Color(0xffF4EEFF);
   static const Color creamForeground = Color(0xffDCD6F7);

@@ -38,17 +38,17 @@ class MainPage extends StatelessWidget {
             ),
             extendBody: true,
             bottomNavigationBar: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+                filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
                 child: GNav(
                     haptic: true,
                     tabBorderRadius: 10,
-                    tabMargin: EdgeInsets.only(bottom: 10),
+                    tabMargin:
+                        EdgeInsets.symmetric(horizontal: 8, vertical: 10),
                     curve: Curves.ease,
                     duration: const Duration(milliseconds: 330),
                     gap: 8,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onBackground,
                     activeColor: Theme.of(context).primaryColor,
                     iconSize: 24,
                     tabBackgroundColor: Theme.of(context).colorScheme.onPrimary,

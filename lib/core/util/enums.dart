@@ -7,4 +7,5 @@ enum RequestState {
 enum AppTheme {
   darkTheme,
   lightTheme,
+  spaceTheme,
 }

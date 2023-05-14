@@ -43,7 +43,7 @@ class DetailAppBarSection extends StatelessWidget {
                     const Center(child: Icon(Icons.error)),
                 fit: BoxFit.cover,
               )),
-          expandedHeight: 250,
+          expandedHeight: 350,
         );
       } else {
         return SliverToBoxAdapter(

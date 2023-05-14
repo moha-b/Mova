@@ -36,10 +36,7 @@ class StudioSection extends StatelessWidget {
                 children: [
                   Text(
                     " Studios",
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall
-                        ?.copyWith(color: Colors.black),
+                    style: Theme.of(context).textTheme.displaySmall,
                   ),
                   SizedBox(
                     height: 8,

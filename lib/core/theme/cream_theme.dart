@@ -52,6 +52,8 @@ ThemeData creamTheme = ThemeData(
         fontWeight: FontWeight.w400,
         textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
   ),
-  colorScheme: ColorScheme.fromSwatch()
-      .copyWith(secondary: ColorPalette.creamForeground),
+  colorScheme: ColorScheme.fromSwatch().copyWith(
+    secondary: ColorPalette.creamForeground,
+    onBackground: Colors.black,
+  ),
 );
