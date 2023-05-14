@@ -6,8 +6,8 @@ import 'package:mova/core/util/constance.dart';
 import 'package:mova/presentation/detail/bloc/detail_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 
-class DetailAppBar extends StatelessWidget {
-  const DetailAppBar({Key? key}) : super(key: key);
+class DetailAppBarSection extends StatelessWidget {
+  const DetailAppBarSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class DetailAppBar extends StatelessWidget {
                     const Center(child: Icon(Icons.error)),
                 fit: BoxFit.cover,
               )),
-          expandedHeight: 250,
+          expandedHeight: 350,
         );
       } else {
         return SliverToBoxAdapter(

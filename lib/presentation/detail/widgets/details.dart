@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mova/core/common/button.dart';
+import 'package:mova/core/common/func.dart';
 import 'package:mova/presentation/detail/bloc/detail_bloc.dart';
 
-class Details extends StatelessWidget {
-  const Details({Key? key}) : super(key: key);
+import 'expanded_text.dart';
+
+class TextDetailsSection extends StatelessWidget {
+  const TextDetailsSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,47 +22,24 @@ class Details extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  buildTitle(context: context, title: state.detailEntity.title),
-                  SizedBox(
+                  buildTitleSection(
+                      context: context, title: state.detailEntity.title),
+                  const SizedBox(
                     height: 8,
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        buildDataAndRate(context),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        buildOutlinedContainer(context: context, text: "13"),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        buildOutlinedContainer(
-                            context: context, text: "Country"),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        buildOutlinedContainer(
-                            context: context, text: "Subtitle")
-                      ],
-                    ),
-                  ),
-                  buildButtons(context),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  const Text("Genres"),
-                  SizedBox(
+                  buildPropertySection(state, context),
+                  buildButtonsSection(context),
+                  Text("Genres : ${showGenres(state.detailEntity.genres)}"),
+                  const SizedBox(
                     height: 8,
                   ),
-                  const Text("OverView"),
+                  ExpandableText(text: state.detailEntity.overview),
                 ],
               ),
             ),
           );
         } else {
-          return SliverToBoxAdapter(
+          return const SliverToBoxAdapter(
             child: Center(child: CircularProgressIndicator()),
           );
         }
@@ -66,68 +47,70 @@ class Details extends StatelessWidget {
     );
   }
 
-  Padding buildButtons(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 24.0),
+  SingleChildScrollView buildPropertySection(
+      LoadedState state, BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-            width: 170,
-            height: 35,
-            decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.circular(25),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.play_circle_fill_rounded,
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  "Play",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(color: Colors.white),
-                )
-              ],
+          showRateAndDate(
+            movie: state.detailEntity,
+            context: context,
+          ),
+          BuildButton(
+            text: state.detailEntity.productionCountries.isNotEmpty
+                ? state.detailEntity.productionCountries[0]["name"]
+                : "Undefined",
+            textColor: Theme.of(context).primaryColor,
+            iconButton: false,
+            border: true,
+            borderRadius: 5,
+            marginHorizontal: 10,
+          ),
+          BuildButton(
+              text: showTime(movie: state.detailEntity),
+              textColor: Theme.of(context).primaryColor,
+              iconButton: false,
+              border: true,
+              borderRadius: 5),
+          BuildButton(
+            text: showRevenue(movie: state.detailEntity),
+            textColor: Theme.of(context).primaryColor,
+            iconButton: false,
+            border: true,
+            borderRadius: 5,
+            marginHorizontal: 10,
+          )
+        ],
+      ),
+    );
+  }
+
+  Padding buildButtonsSection(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 24.0),
+      child: Row(
+        children: [
+          const Expanded(
+            child: BuildButton(
+              height: 40,
+              text: "Play",
+              iconButton: true,
+              border: false,
             ),
           ),
-          SizedBox(
-            width: 8,
+          const SizedBox(
+            width: 16,
           ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-            width: 170,
-            height: 35,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-                border: Border.all(
-                    width: 2.5, color: Theme.of(context).primaryColor)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Iconsax.direct_inbox,
-                  color: Theme.of(context).primaryColor,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  "Play",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(color: Theme.of(context).primaryColor),
-                )
-              ],
+          Expanded(
+            child: BuildButton(
+              height: 40,
+              text: "Download",
+              iconButton: true,
+              icon: Iconsax.direct_inbox,
+              iconColor: Theme.of(context).primaryColor,
+              textColor: Theme.of(context).primaryColor,
+              border: true,
             ),
           ),
         ],
@@ -135,60 +118,8 @@ class Details extends StatelessWidget {
     );
   }
 
-  Container buildOutlinedContainer(
-      {required BuildContext context, required String text}) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7),
-          border: Border.all(
-            color: Theme.of(context).primaryColor,
-            width: 1.7,
-          )),
-      child: Text(
-        "$text",
-        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-
-  Row buildDataAndRate(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Icon(
-          Iconsax.star_1,
-          color: Theme.of(context).primaryColor,
-        ),
-        SizedBox(
-          width: 10,
-        ),
-        Text(
-          "0.0",
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context).primaryColor,
-              ),
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 8),
-          child: Icon(
-            Iconsax.arrow_right_3,
-            color: Theme.of(context).primaryColor,
-          ),
-        ),
-        Text(
-          "2022",
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-        ),
-      ],
-    );
-  }
-
-  Row buildTitle({required BuildContext context, required String title}) {
+  Row buildTitleSection(
+      {required BuildContext context, required String title}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -196,9 +127,7 @@ class Details extends StatelessWidget {
           child: Text(
             title,
             style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                color: Colors.black,
-                overflow: TextOverflow.ellipsis,
-                fontWeight: FontWeight.w600),
+                overflow: TextOverflow.ellipsis, fontWeight: FontWeight.w600),
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -208,17 +137,17 @@ class Details extends StatelessWidget {
               onTap: () {},
               child: SvgPicture.asset(
                 "assets/icons/bookmark.svg",
-                color: Colors.black,
+                color: Theme.of(context).textTheme.displaySmall?.color,
                 height: 17,
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: GestureDetector(
                 onTap: () {},
                 child: SvgPicture.asset(
                   "assets/icons/paper-plane.svg",
-                  color: Colors.black,
+                  color: Theme.of(context).textTheme.displaySmall?.color,
                   height: 17,
                 ),
               ),

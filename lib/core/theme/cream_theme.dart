@@ -3,8 +3,20 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../resources/colors.dart';
 
-ThemeData lightTheme = ThemeData(
-  primaryColor: ColorPalette.darkPrimary,
+ThemeData creamTheme = ThemeData(
+  primaryColor: ColorPalette.creamPrimary,
+  scaffoldBackgroundColor: ColorPalette.creamBackground,
+  appBarTheme: const AppBarTheme(
+    foregroundColor: ColorPalette.creamSecondary,
+    backgroundColor: ColorPalette.creamBackground,
+    actionsIconTheme: IconThemeData(
+      color: ColorPalette.creamSecondary,
+    ),
+    iconTheme: IconThemeData(
+      color: ColorPalette.creamSecondary,
+    ),
+    elevation: 0,
+  ),
   textTheme: TextTheme(
     displayLarge: GoogleFonts.nunito(
         fontSize: 35,
@@ -39,5 +51,9 @@ ThemeData lightTheme = ThemeData(
         fontSize: 10,
         fontWeight: FontWeight.w400,
         textStyle: const TextStyle(overflow: TextOverflow.ellipsis)),
+  ),
+  colorScheme: ColorScheme.fromSwatch().copyWith(
+    secondary: ColorPalette.creamForeground,
+    onBackground: Colors.black,
   ),
 );
