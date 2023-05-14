@@ -21,10 +21,10 @@ class MainPage extends StatelessWidget {
           ..add(GetTopRatedEvent())
           ..add(GetUpcomingEvent()),
         child: Scaffold(
-            body: SafeArea(
+            body: const SafeArea(
               child: SingleChildScrollView(
                 child: Column(
-                  children: const [
+                  children: [
                     CarouselSliderWidget(),
                     MovieListWidget(
                       type: 1,
@@ -37,49 +37,44 @@ class MainPage extends StatelessWidget {
               ),
             ),
             extendBody: true,
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
-            floatingActionButton: Container(
-              padding: const EdgeInsets.only(bottom: 16, left: 10, right: 10),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
-                  child: GNav(
-                      haptic: true,
-                      tabBorderRadius: 10,
-                      curve: Curves.ease,
-                      duration: const Duration(milliseconds: 330),
-                      gap: 8,
-                      color: Colors.white,
-                      activeColor: Theme.of(context).primaryColor,
-                      iconSize: 24,
-                      tabBackgroundColor:
-                          Theme.of(context).colorScheme.onPrimary,
-                      padding: const EdgeInsets.all(16),
-                      tabs: const [
-                        GButton(
-                          icon: Iconsax.home,
-                          text: 'Home',
-                        ),
-                        GButton(
-                          icon: Iconsax.save_2,
-                          text: 'My List',
-                        ),
-                        GButton(
-                          icon: Iconsax.discover_1,
-                          text: 'Explore',
-                        ),
-                        GButton(
-                          icon: Iconsax.direct_inbox,
-                          text: 'Downloads',
-                        ),
-                        GButton(
-                          icon: Iconsax.user,
-                          text: 'Profile',
-                        )
-                      ]),
-                ),
+            bottomNavigationBar: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+                child: GNav(
+                    haptic: true,
+                    tabBorderRadius: 10,
+                    tabMargin: EdgeInsets.only(bottom: 10),
+                    curve: Curves.ease,
+                    duration: const Duration(milliseconds: 330),
+                    gap: 8,
+                    color: Colors.white,
+                    activeColor: Theme.of(context).primaryColor,
+                    iconSize: 24,
+                    tabBackgroundColor: Theme.of(context).colorScheme.onPrimary,
+                    padding: const EdgeInsets.all(10),
+                    tabs: const [
+                      GButton(
+                        icon: Iconsax.home,
+                        text: 'Home',
+                      ),
+                      GButton(
+                        icon: Iconsax.save_2,
+                        text: 'My List',
+                      ),
+                      GButton(
+                        icon: Iconsax.discover_1,
+                        text: 'Explore',
+                      ),
+                      GButton(
+                        icon: Iconsax.direct_inbox,
+                        text: 'Downloads',
+                      ),
+                      GButton(
+                        icon: Iconsax.user,
+                        text: 'Profile',
+                      )
+                    ]),
               ),
             )));
   }
