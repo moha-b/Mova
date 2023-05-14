@@ -12,6 +12,10 @@ ThemeData darkTheme = ThemeData(
     iconTheme: IconThemeData(color: Colors.white),
     elevation: 0,
   ),
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    elevation: 0,
+    backgroundColor: Colors.transparent,
+  ),
   colorScheme: ColorScheme.fromSwatch().copyWith(
       secondary: ColorPalette.darkForeground,
       onPrimary: ColorPalette.darkAccent),

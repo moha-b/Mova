@@ -37,13 +37,14 @@ class MainPage extends StatelessWidget {
               ),
             ),
             extendBody: true,
-            bottomNavigationBar: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
-                child: Container(
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            floatingActionButton: Container(
+              padding: const EdgeInsets.only(bottom: 16, left: 10, right: 10),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
                   child: GNav(
                       haptic: true,
                       tabBorderRadius: 10,
@@ -55,7 +56,7 @@ class MainPage extends StatelessWidget {
                       iconSize: 24,
                       tabBackgroundColor:
                           Theme.of(context).colorScheme.onPrimary,
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(16),
                       tabs: const [
                         GButton(
                           icon: Iconsax.home,
