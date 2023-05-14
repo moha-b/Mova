@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mova/core/functions/func.dart';
+import 'package:mova/core/common/func.dart';
 import 'package:mova/core/util/constance.dart';
 import 'package:mova/presentation/home/bloc/movie_bloc.dart';
 import 'package:shimmer/shimmer.dart';

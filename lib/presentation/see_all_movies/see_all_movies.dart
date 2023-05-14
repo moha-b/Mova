@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mova/core/widgets/grid_view.dart';
+import 'package:mova/core/common/grid_view.dart';
+import 'package:mova/core/theme/dark_theme.dart';
 import 'package:mova/domain/entities/movie_entity.dart';
 
 class SeeAllMovies extends StatelessWidget {
@@ -17,7 +18,7 @@ class SeeAllMovies extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Iconsax.arrow_left_2),
+          icon: const Icon(Iconsax.arrow_left_2),
         ),
         title: Text(
           title,
@@ -37,6 +38,13 @@ class SeeAllMovies extends StatelessWidget {
 }
 
 class CustomSearch extends SearchDelegate {
+  @override
+  ThemeData appBarTheme(BuildContext context) {
+    return darkTheme.copyWith(
+      hintColor: Colors.white,
+    );
+  }
+
   List<MovieEntity> list;
 
   CustomSearch(this.list);
@@ -48,8 +56,8 @@ class CustomSearch extends SearchDelegate {
             query = "";
           },
           icon: const Icon(
-            Iconsax.close_circle,
-            color: Colors.white,
+            Iconsax.close_square,
+            color: Colors.red,
           ))
     ];
   }
@@ -60,7 +68,7 @@ class CustomSearch extends SearchDelegate {
         onPressed: () {
           close(context, null);
         },
-        icon: const Icon(Iconsax.arrow_left_2, color: Colors.white));
+        icon: const Icon(Iconsax.arrow_left_2));
   }
 
   @override

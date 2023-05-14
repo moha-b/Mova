@@ -12,7 +12,7 @@ ThemeData darkTheme = ThemeData(
     iconTheme: IconThemeData(color: Colors.white),
     elevation: 0,
   ),
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     elevation: 0,
     backgroundColor: Colors.transparent,
   ),

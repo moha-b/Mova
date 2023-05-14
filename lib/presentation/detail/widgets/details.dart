@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mova/core/functions/func.dart';
-import 'package:mova/core/widgets/button.dart';
+import 'package:mova/core/common/button.dart';
+import 'package:mova/core/common/func.dart';
 import 'package:mova/presentation/detail/bloc/detail_bloc.dart';
 
 import 'expanded_text.dart';
