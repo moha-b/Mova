@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mova/core/widgets/image_container.dart';
 import 'package:mova/presentation/detail/detail_page.dart';
 import 'package:mova/presentation/home/bloc/movie_bloc.dart';
+import 'package:mova/presentation/see_all_movies/see_all_movies.dart';
 
 class MovieListWidget extends StatelessWidget {
   final int type;
@@ -37,12 +38,24 @@ class MovieListWidget extends StatelessWidget {
                             .displaySmall
                             ?.copyWith(fontWeight: FontWeight.w600),
                       ),
-                      Text(
-                        "See all",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: Theme.of(context).primaryColor),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SeeAllMovies(
+                                  movieList: state.topRatedMovies,
+                                  title: title,
+                                ),
+                              ));
+                        },
+                        child: Text(
+                          "See all",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(color: Theme.of(context).primaryColor),
+                        ),
                       ),
                     ],
                   ),
@@ -94,12 +107,24 @@ class MovieListWidget extends StatelessWidget {
                             .displaySmall
                             ?.copyWith(fontWeight: FontWeight.w600),
                       ),
-                      Text(
-                        "See all",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: Theme.of(context).primaryColor),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SeeAllMovies(
+                                  movieList: state.upcomingMovies,
+                                  title: title,
+                                ),
+                              ));
+                        },
+                        child: Text(
+                          "See all",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(color: Theme.of(context).primaryColor),
+                        ),
                       ),
                     ],
                   ),

@@ -5,6 +5,13 @@ import 'package:mova/core/resources/colors.dart';
 ThemeData darkTheme = ThemeData(
   primaryColor: ColorPalette.darkPrimary,
   scaffoldBackgroundColor: ColorPalette.darkBackground,
+  appBarTheme: const AppBarTheme(
+    foregroundColor: Colors.white,
+    backgroundColor: ColorPalette.darkBackground,
+    actionsIconTheme: IconThemeData(color: Colors.white),
+    iconTheme: IconThemeData(color: Colors.white),
+    elevation: 0,
+  ),
   colorScheme: ColorScheme.fromSwatch().copyWith(
       secondary: ColorPalette.darkForeground,
       onPrimary: ColorPalette.darkAccent),

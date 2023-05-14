@@ -15,7 +15,6 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("build Page");
     return BlocProvider(
         create: (context) => getIt<MovieBloc>()
           ..add(GetNowPlayingEvent())
@@ -37,12 +36,14 @@ class MainPage extends StatelessWidget {
                 ),
               ),
             ),
+            extendBody: true,
             bottomNavigationBar: ClipRRect(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(30),
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                   child: GNav(
                       haptic: true,
                       tabBorderRadius: 10,

@@ -41,6 +41,7 @@ dependencies:
   google_fonts:
   animate_do:
   carousel_slider:
+  material_floating_search_bar:
   flutter_svg:
   intl: ^0.17.0
 

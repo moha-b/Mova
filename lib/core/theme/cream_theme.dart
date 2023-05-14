@@ -6,6 +6,17 @@ import '../resources/colors.dart';
 ThemeData creamTheme = ThemeData(
   primaryColor: ColorPalette.creamPrimary,
   scaffoldBackgroundColor: ColorPalette.creamBackground,
+  appBarTheme: const AppBarTheme(
+    foregroundColor: ColorPalette.creamSecondary,
+    backgroundColor: ColorPalette.creamBackground,
+    actionsIconTheme: IconThemeData(
+      color: ColorPalette.creamSecondary,
+    ),
+    iconTheme: IconThemeData(
+      color: ColorPalette.creamSecondary,
+    ),
+    elevation: 0,
+  ),
   textTheme: TextTheme(
     displayLarge: GoogleFonts.nunito(
         fontSize: 35,
