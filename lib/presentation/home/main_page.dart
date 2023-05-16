@@ -26,10 +26,7 @@ class MainPage extends StatelessWidget {
                 child: Column(
                   children: [
                     CarouselSliderWidget(),
-                    MovieListWidget(
-                      type: 1,
-                      title: "Top Rated",
-                    ),
+                    MovieListWidget(type: 1, title: "Top Rated"),
                     MovieListWidget(type: 2, title: "Upcoming"),
                     SizedBox(height: 16),
                   ],
