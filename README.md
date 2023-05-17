@@ -1,6 +1,39 @@
 # Mova ( **Not Completed Yet** )
 movie app demonstrates how the clean architecture and BLoC pattern can be used to build a robust and scalable mobile application that can handle multiple APIs with different endpoints. It showcases how the separation of concerns, reactive programming, and modularization can simplify complex development tasks and make code easier to maintain and extend.
 
+## Features ✨
+There is 3 section here with 3 different colors :
+- 🟩 Implemented Features:
+
+  - Now Playing :  Provides users with real-time information about currently playing movies(90%)
+  ```
+  api :  https://api.themoviedb.org/3/movie/popular
+  ```
+  - Top Rated : Displays a curated list of the highest-rated movies based on user ratings, critics' reviews, and popular demand(100%)
+   ```
+  api :  https://api.themoviedb.org/3/movie/top_rated
+  ```
+  - Upcoming : Showcases a list of upcoming movie releases, allowing users to stay updated on the latest releases, release dates, and movie details.(100%)
+   ```
+  api :  https://api.themoviedb.org/3/movie/upcoming
+  ```
+  - Details : Provides comprehensive details about a specific movie based on its unique ID. Users can access information such as genres, runtime, cast and crew, ratings, and reviews for a particular movie. (100%)
+   ```
+  api :  https://api.themoviedb.org/3/movie/{movie_id}
+  ```
+
+- 🟥 Features in Progress:
+
+  - cast: Allows users to view information about the cast and crew of movies.(5%)
+
+- ⬛ Known Features:
+
+<br/>
+<img width="" src="https://github.com/moha-b/Mova/assets/73842931/586f0c68-ea81-44e6-96a1-3900b5570bc9" />
+
+<br/>
+
+
 ## Techniques used 🛠️    
 
 <img width="300" align="right" src="https://github.com/moha-b/Mova/assets/73842931/9bcd7c9b-80a3-4933-b8e1-99ead186663b" alt="preview" />
