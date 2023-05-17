@@ -21,16 +21,16 @@ class MovieListWidget extends StatelessWidget {
       builder: (context, state) {
         switch (type) {
           case 1:
-            return buildMovieList(context, state);
+            return buildMovieList(context, state.topRatedMovies);
           case 2:
-            return buildMovieList(context, state);
+            return buildMovieList(context, state.upcomingMovies);
         }
         return Container();
       },
     );
   }
 
-  Column buildMovieList(BuildContext context, MovieState state) {
+  Column buildMovieList(BuildContext context, List<MovieEntity> movieList) {
     return Column(
       children: [
         const SizedBox(
@@ -51,9 +51,7 @@ class MovieListWidget extends StatelessWidget {
               ),
               InkWell(
                 onTap: () => _goToSeeAll(
-                    context: context,
-                    movieList: state.upcomingMovies,
-                    title: title),
+                    context: context, movieList: movieList, title: title),
                 child: Text(
                   "See all",
                   style: Theme.of(context)
@@ -72,16 +70,15 @@ class MovieListWidget extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16.0),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => GestureDetector(
-                    onTap: () =>
-                        _goToDetailPage(context, state.upcomingMovies, index),
+                    onTap: () => _goToDetailPage(context, movieList, index),
                     child: ImageContainer(
-                        imageUrl: state.upcomingMovies[index].posterPath,
-                        rate: state.upcomingMovies[index].voteAverage),
+                        imageUrl: movieList[index].posterPath,
+                        rate: movieList[index].voteAverage),
                   ),
               separatorBuilder: (context, index) => const SizedBox(
                     width: 8.0,
                   ),
-              itemCount: state.upcomingMovies.length),
+              itemCount: movieList.length),
         ),
       ],
     );
