@@ -1,10 +1,16 @@
+import 'package:mova/data/models/cast_model.dart';
+import 'package:mova/data/models/crew_model.dart';
 import 'package:mova/data/models/genre_model.dart';
 import 'package:mova/data/models/production_company_model.dart';
 
 import '../../domain/entities/detail_entity.dart';
 
 class DetailModel extends DetailEntity {
-  factory DetailModel.fromJson(Map<String, dynamic> json) {
+  factory DetailModel.fromJson(
+    Map<String, dynamic> json,
+    List<dynamic> castData,
+    List<dynamic> crewData,
+  ) {
     return DetailModel(
       adult: json['adult'],
       backdropPath: json['backdrop_path'],
@@ -26,8 +32,11 @@ class DetailModel extends DetailEntity {
       title: json['title'],
       video: json['video'],
       voteAverage: json['vote_average'],
+      cast: CastModel.from(castData),
+      crew: CrewModel.from(crewData),
     );
   }
+
   const DetailModel({
     required bool adult,
     required String backdropPath,
@@ -47,6 +56,8 @@ class DetailModel extends DetailEntity {
     required String title,
     required bool video,
     required double voteAverage,
+    required List<CastModel> cast,
+    required List<CrewModel> crew,
   }) : super(
           adult: adult,
           backdropPath: backdropPath,
@@ -66,5 +77,7 @@ class DetailModel extends DetailEntity {
           title: title,
           video: video,
           voteAverage: voteAverage,
+          cast: cast,
+          crew: crew,
         );
 }

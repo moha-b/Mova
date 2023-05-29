@@ -14,8 +14,12 @@ abstract class UrlBuilder {
   static const String BASE_URL = "https://api.themoviedb.org/3/movie";
   static const String API_KEY = "?api_key=15cc2d06189e5b776834afe0bdef40ba";
 
-  static String buildUrl({required String path, String? endPoint}) =>
-      "$BASE_URL$path$API_KEY";
+  static String buildUrl({required String endPoint}) =>
+      "$BASE_URL$endPoint$API_KEY";
+
+  static String buildAdvancedUrl(
+          {required String movieId, required String endPoint}) =>
+      "$BASE_URL$movieId$endPoint$API_KEY";
 }
 
 class ImageUrlBuilder {
@@ -25,19 +29,20 @@ class ImageUrlBuilder {
 }
 
 class Api {
-  static String getNowPlayingUrl() => UrlBuilder.buildUrl(path: "/now_playing");
+  static String getNowPlayingUrl() =>
+      UrlBuilder.buildUrl(endPoint: "/now_playing");
 
-  static String getTopRatedUrl() => UrlBuilder.buildUrl(path: "/top_rated");
+  static String getTopRatedUrl() => UrlBuilder.buildUrl(endPoint: "/top_rated");
 
-  static String getUpcomingUrl() => UrlBuilder.buildUrl(path: "/upcoming");
+  static String getUpcomingUrl() => UrlBuilder.buildUrl(endPoint: "/upcoming");
 
   static String getImageUrl(String path) => ImageUrlBuilder.buildUrl(path);
 
   static String getDetailUrl(int movieId) =>
-      UrlBuilder.buildUrl(path: "/$movieId");
+      UrlBuilder.buildUrl(endPoint: "/$movieId");
 
-  static String getCastUrl(int movieId) =>
-      UrlBuilder.buildUrl(path: "/$movieId");
+  static String getCreditsUrl(int movieId) =>
+      UrlBuilder.buildAdvancedUrl(movieId: "/$movieId", endPoint: "/credits");
 
-  static String getTestUrl() => UrlBuilder.buildUrl(path: "/868759");
+  static String getTestUrl() => UrlBuilder.buildUrl(endPoint: "/868759");
 }

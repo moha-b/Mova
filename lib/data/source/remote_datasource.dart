@@ -86,15 +86,20 @@ class MovieRemoteDataSource extends DataSourceRepository {
 
   @override
   Future<DetailModel> getDetail(int movieId) async {
-    final response = await Dio().get(Api.getDetailUrl(movieId));
+    final detailResponse = await Dio().get(Api.getDetailUrl(movieId));
+    final creditsResponse = await Dio().get(Api.getCreditsUrl(movieId));
 
     try {
-      if (response.statusCode == 200) {
-        final data = response.data;
-        return DetailModel.fromJson(data);
+      if (creditsResponse.statusCode == 200 &&
+          detailResponse.statusCode == 200) {
+        final creditsData = creditsResponse.data;
+        final detailData = detailResponse.data;
+
+        return DetailModel.fromJson(
+            detailData, creditsData['cast'], creditsData['crew']);
       } else {
         throw ServerFailure(
-            'Failed to fetch movies: ${response.statusMessage}');
+            'Failed to fetch movies: ${detailResponse.statusMessage}');
       }
     } on DioError catch (e) {
       throw ServerFailure.fromDioError(e);
@@ -104,10 +109,14 @@ class MovieRemoteDataSource extends DataSourceRepository {
   @override
   Future<DetailModel> getTest(int movieId) async {
     final response = await Dio().get(Api.getTestUrl());
+    final creditsResponse = await Dio().get(Api.getCreditsUrl(movieId));
     try {
-      if (response.statusCode == 200) {
-        final data = response.data as Map<String, dynamic>;
-        return DetailModel.fromJson(data);
+      if (creditsResponse.statusCode == 200 && response.statusCode == 200) {
+        final creditsData = creditsResponse.data;
+        final detailData = response.data;
+
+        return DetailModel.fromJson(
+            detailData, creditsData['cast'], creditsData['crew']);
       } else {
         throw ServerFailure(
             'Failed to fetch movies: ${response.statusMessage}');
