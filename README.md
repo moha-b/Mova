@@ -6,21 +6,9 @@ There is 3 section here with 3 different colors :
 - 🟩 Implemented Features:
 
   - Now Playing :  Provides users with real-time information about currently playing movies(90%)
-  ```
-  api :  https://api.themoviedb.org/3/movie/popular
-  ```
   - Top Rated : Displays a curated list of the highest-rated movies based on user ratings, critics' reviews, and popular demand(100%)
-   ```
-  api :  https://api.themoviedb.org/3/movie/top_rated
-  ```
   - Upcoming : Showcases a list of upcoming movie releases, allowing users to stay updated on the latest releases, release dates, and movie details.(100%)
-   ```
-  api :  https://api.themoviedb.org/3/movie/upcoming
-  ```
   - Details : Provides comprehensive details about a specific movie based on its unique ID. Users can access information such as genres, runtime, cast and crew, ratings, and reviews for a particular movie. (100%)
-   ```
-  api :  https://api.themoviedb.org/3/movie/{movie_id}
-  ```
 
 - 🟥 Features in Progress:
 
