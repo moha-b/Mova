@@ -10,7 +10,7 @@ class CrewModel extends CrewEntity {
       name: json['name'],
       originalName: json['original_name'],
       popularity: json['popularity'],
-      profilePath: json['profile_path'],
+      profilePath: json['profile_path'] ?? '',
       creditId: json['credit_id'],
       department: json['department'],
       job: json['job'],

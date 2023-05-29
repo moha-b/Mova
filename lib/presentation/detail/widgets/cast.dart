@@ -1,44 +1,76 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mova/core/util/constance.dart';
+import 'package:mova/domain/entities/cast_entity.dart';
+import 'package:mova/presentation/detail/bloc/detail_bloc.dart';
 
 class CastSection extends StatelessWidget {
   const CastSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: SizedBox(
-        height: 150,
-        child: GridView.builder(
-          shrinkWrap: true,
-          padding: const EdgeInsets.only(left: 16),
-          scrollDirection: Axis.horizontal,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 1 / 2.2,
-          ),
-          itemCount: 3,
-          itemBuilder: (context, index) => _cast(),
-        ),
-      ),
+    return BlocBuilder<DetailBloc, DetailState>(
+      builder: (context, state) {
+        if (state is LoadedState) {
+          return SliverToBoxAdapter(
+            child: SizedBox(
+              height: 150,
+              child: GridView.builder(
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(left: 16),
+                scrollDirection: Axis.horizontal,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1 / 2.4,
+                ),
+                itemCount: state.detailEntity.cast.length,
+                itemBuilder: (context, index) =>
+                    _cast(state.detailEntity.cast[index], context),
+              ),
+            ),
+          );
+        } else {
+          return const SliverToBoxAdapter(
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+      },
     );
   }
 
-  Container _cast() {
+  Container _cast(CastEntity cast, context) {
     return Container(
-      margin: EdgeInsets.only(right: 16),
+      margin: EdgeInsets.only(right: 8),
       child: Row(
         children: [
-          CircleAvatar(radius: 25),
+          CircleAvatar(
+              radius: 30,
+              backgroundImage: NetworkImage(
+                Api.getImageUrl(cast.profilePath),
+              )),
           SizedBox(
             width: 5,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Actor Name"),
-              Text("Character"),
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  cast.character,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge
+                      ?.copyWith(overflow: TextOverflow.ellipsis),
+                ),
+                Text(
+                  cast.name,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ],
+            ),
           )
         ],
       ),

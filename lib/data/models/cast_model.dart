@@ -10,7 +10,7 @@ class CastModel extends CastEntity {
       name: json['name'],
       originalName: json['original_name'],
       popularity: json['popularity'],
-      profilePath: json['profile_path'],
+      profilePath: json['profile_path'] ?? '',
       castId: json['cast_id'],
       character: json['character'],
       creditId: json['credit_id'],
@@ -18,19 +18,32 @@ class CastModel extends CastEntity {
     );
   }
   const CastModel({
-    required super.adult,
-    required super.gender,
-    required super.id,
-    required super.knownForDepartment,
-    required super.name,
-    required super.originalName,
-    required super.popularity,
-    required super.profilePath,
-    required super.castId,
-    required super.character,
-    required super.creditId,
-    required super.order,
-  });
+    required bool adult,
+    required int gender,
+    required int id,
+    required String knownForDepartment,
+    required String name,
+    required String originalName,
+    required double popularity,
+    required String profilePath,
+    required int castId,
+    required String character,
+    required String creditId,
+    required int order,
+  }) : super(
+          adult: adult,
+          gender: gender,
+          id: id,
+          knownForDepartment: knownForDepartment,
+          name: name,
+          originalName: originalName,
+          popularity: popularity,
+          profilePath: profilePath,
+          castId: castId,
+          character: character,
+          creditId: creditId,
+          order: order,
+        );
 
   static List<CastModel> from(List<dynamic> json) {
     return json.map((e) => CastModel.fromJson(e)).toList();

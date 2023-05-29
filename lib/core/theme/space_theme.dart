@@ -43,7 +43,12 @@ ThemeData spaceTheme = ThemeData(
       color: ColorPalette.spacePrimary,
     ),
     bodyMedium: GoogleFonts.nunito(
-      fontSize: 14,
+      fontSize: 13,
+      fontWeight: FontWeight.w400,
+      color: Colors.white,
+    ),
+    bodySmall: GoogleFonts.nunito(
+      fontSize: 10,
       fontWeight: FontWeight.w400,
       color: Colors.white,
     ),
@@ -51,11 +56,6 @@ ThemeData spaceTheme = ThemeData(
       fontSize: 14,
       fontWeight: FontWeight.w700,
       color: ColorPalette.spacePrimary,
-    ),
-    bodySmall: GoogleFonts.nunito(
-      fontSize: 12,
-      fontWeight: FontWeight.w400,
-      color: Colors.white,
     ),
     labelSmall: GoogleFonts.nunito(
       fontSize: 10,
