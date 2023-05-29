@@ -33,7 +33,7 @@ class DetailAppBarSection extends StatelessWidget {
                 StretchMode.zoomBackground
               ],
               background: CachedNetworkImage(
-                imageUrl: Apis.imageUrl(state.detailEntity.backdropPath),
+                imageUrl: Api.getImageUrl(state.detailEntity.backdropPath),
                 placeholder: (context, url) => Shimmer.fromColors(
                   baseColor: Colors.grey[300]!,
                   highlightColor: Colors.grey[100]!,

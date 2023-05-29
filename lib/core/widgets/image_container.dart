@@ -18,7 +18,7 @@ class ImageContainer extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
             child: CachedNetworkImage(
-              imageUrl: Apis.imageUrl(imageUrl),
+              imageUrl: Api.getImageUrl(imageUrl),
               width: 150,
               fit: BoxFit.fill,
               placeholder: (context, url) => Shimmer.fromColors(

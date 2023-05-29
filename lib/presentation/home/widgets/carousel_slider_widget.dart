@@ -30,7 +30,7 @@ class CarouselSliderWidget extends StatelessWidget {
                 return Stack(
                   children: [
                     CachedNetworkImage(
-                      imageUrl: Apis.imageUrl(movie.backdropPath),
+                      imageUrl: Api.getImageUrl(movie.backdropPath),
                       fit: BoxFit.cover,
                       height: 350.0,
                       placeholder: (context, url) => Shimmer.fromColors(

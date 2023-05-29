@@ -38,7 +38,7 @@ class MovieCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image.network(
-                Apis.imageUrl(movie.backdropPath),
+                Api.getImageUrl(movie.backdropPath),
                 width: 300,
                 height: 533,
                 fit: BoxFit.cover,
