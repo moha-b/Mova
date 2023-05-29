@@ -34,7 +34,7 @@ class MovieList extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ImageContainer(
-                  imageUrl: Network.imageUrl(list[index].posterPath),
+                  imageUrl: Apis.imageUrl(list[index].posterPath),
                   rate: list[index].voteAverage,
                 ),
                 Padding(

@@ -37,7 +37,7 @@ Container buildMovieGrid({required List<MovieEntity> movie}) {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: CachedNetworkImage(
-              imageUrl: Network.imageUrl(movie[index].posterPath),
+              imageUrl: Apis.imageUrl(movie[index].posterPath),
               fit: BoxFit.fill,
             ),
           ),

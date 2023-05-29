@@ -60,8 +60,8 @@ class StudioSection extends StatelessWidget {
                                   color:
                                       Theme.of(context).colorScheme.secondary,
                                   child: CachedNetworkImage(
-                                    imageUrl: Network.imageUrl(
-                                        studio[index].logoPath!),
+                                    imageUrl:
+                                        Apis.imageUrl(studio[index].logoPath!),
                                     placeholder: (context, url) =>
                                         Shimmer.fromColors(
                                       baseColor: Colors.grey[300]!,
