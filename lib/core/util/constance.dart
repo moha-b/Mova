@@ -44,5 +44,9 @@ class Api {
   static String getCreditsUrl(int movieId) =>
       UrlBuilder.buildAdvancedUrl(movieId: "/$movieId", endPoint: "/credits");
 
+  static String getRecommendationUrl(int movieId) =>
+      UrlBuilder.buildAdvancedUrl(
+          movieId: "/$movieId", endPoint: "/recommendations");
+
   static String getTestUrl() => UrlBuilder.buildUrl(endPoint: "/868759");
 }

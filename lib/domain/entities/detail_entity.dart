@@ -4,6 +4,7 @@ import 'package:mova/domain/entities/production_company_entity.dart';
 import 'cast_entity.dart';
 import 'crew_entity.dart';
 import 'genre_entity.dart';
+import 'movie_entity.dart';
 
 class DetailEntity extends Equatable {
   final bool adult;
@@ -26,6 +27,7 @@ class DetailEntity extends Equatable {
   final double voteAverage;
   final List<CastEntity> cast;
   final List<CrewEntity> crew;
+  final List<MovieEntity> recommendation;
 
   @override
   List<Object> get props => [
@@ -52,6 +54,7 @@ class DetailEntity extends Equatable {
       ];
 
   const DetailEntity({
+    required this.recommendation,
     required this.adult,
     required this.backdropPath,
     required this.budget,

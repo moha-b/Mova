@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mova/core/widgets/movie_list.dart';
+import 'package:mova/presentation/detail/bloc/detail_bloc.dart';
 
 class TabBarSection extends StatefulWidget {
   const TabBarSection({super.key});
@@ -32,15 +35,18 @@ class _TabBarSectionState extends State<TabBarSection>
           children: [
             TabBar(
               controller: _tabController,
+              unselectedLabelColor: Colors.grey,
+              labelColor: Theme.of(context).primaryColor,
+              indicatorColor: Theme.of(context).primaryColor,
               tabs: const [
                 Tab(
-                  text: 'Tab 1',
+                  text: 'Trailers',
                 ),
                 Tab(
-                  text: 'Tab 2',
+                  text: 'More Like This',
                 ),
                 Tab(
-                  text: 'Tab 3',
+                  text: 'Comments',
                 ),
               ],
             ),
@@ -49,19 +55,31 @@ class _TabBarSectionState extends State<TabBarSection>
                 controller: _tabController,
                 children: [
                   Container(
-                    color: Colors.red,
                     child: Center(
-                      child: Text('Tab 1 Content'),
+                      child: Text('Api Don\'t Provide This Feature'),
                     ),
                   ),
-                  Container(
-                    color: Colors.green,
-                    child: Center(
-                      child: Text('Tab 2 Content'),
-                    ),
+                  BlocBuilder<DetailBloc, DetailState>(
+                    builder: (context, state) {
+                      if (state is LoadedState) {
+                        return ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          padding: EdgeInsets.all(8),
+                          scrollDirection: Axis.vertical,
+                          itemBuilder: (context, index) => MovieList(
+                              list: state.detailEntity.recommendation),
+                        );
+                      } else {
+                        return Container(
+                          child: Center(
+                            child: Text('Something wont wrong'),
+                          ),
+                        );
+                      }
+                    },
                   ),
                   Container(
-                    color: Colors.blue,
                     child: Center(
                       child: Text('Tab 3 Content'),
                     ),

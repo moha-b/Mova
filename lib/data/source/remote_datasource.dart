@@ -26,8 +26,6 @@ class MovieRemoteDataSource extends DataSourceRepository {
             response.data['results'].map((json) => MovieModel.fromJson(json)));
         return movies;
       } else {
-        print(
-            "MovieRemoteDataSource file : getNowPlayingMovies method :: Else");
         throw ServerFailure(
             'Failed to fetch movies: ${response.statusMessage}');
       }
@@ -50,8 +48,6 @@ class MovieRemoteDataSource extends DataSourceRepository {
             response.data['results'].map((json) => MovieModel.fromJson(json)));
         return movies;
       } else {
-        print(
-            "MovieRemoteDataSource file : getNowPlayingMovies method :: Else");
         throw ServerFailure(
             'Failed to fetch movies: ${response.statusMessage}');
       }
@@ -74,8 +70,6 @@ class MovieRemoteDataSource extends DataSourceRepository {
             response.data['results'].map((json) => MovieModel.fromJson(json)));
         return movies;
       } else {
-        print(
-            "MovieRemoteDataSource file : getNowPlayingMovies method :: Else");
         throw ServerFailure(
             'Failed to fetch movies: ${response.statusMessage}');
       }
@@ -88,15 +82,19 @@ class MovieRemoteDataSource extends DataSourceRepository {
   Future<DetailModel> getDetail(int movieId) async {
     final detailResponse = await Dio().get(Api.getDetailUrl(movieId));
     final creditsResponse = await Dio().get(Api.getCreditsUrl(movieId));
+    final recommendationResponse =
+        await Dio().get(Api.getRecommendationUrl(movieId));
 
     try {
       if (creditsResponse.statusCode == 200 &&
           detailResponse.statusCode == 200) {
         final creditsData = creditsResponse.data;
         final detailData = detailResponse.data;
-
+        final List<MovieModel> movies = List<MovieModel>.from(
+            recommendationResponse.data['results']
+                .map((json) => MovieModel.fromJson(json)));
         return DetailModel.fromJson(
-            detailData, creditsData['cast'], creditsData['crew']);
+            detailData, creditsData['cast'], creditsData['crew'], movies);
       } else {
         throw ServerFailure(
             'Failed to fetch movies: ${detailResponse.statusMessage}');
@@ -110,13 +108,17 @@ class MovieRemoteDataSource extends DataSourceRepository {
   Future<DetailModel> getTest(int movieId) async {
     final response = await Dio().get(Api.getTestUrl());
     final creditsResponse = await Dio().get(Api.getCreditsUrl(movieId));
+    final recommendationResponse =
+        await Dio().get(Api.getRecommendationUrl(movieId));
     try {
       if (creditsResponse.statusCode == 200 && response.statusCode == 200) {
         final creditsData = creditsResponse.data;
         final detailData = response.data;
-
+        final List<MovieModel> movies = List<MovieModel>.from(
+            recommendationResponse.data['results']
+                .map((json) => MovieModel.fromJson(json)));
         return DetailModel.fromJson(
-            detailData, creditsData['cast'], creditsData['crew']);
+            detailData, creditsData['cast'], creditsData['crew'], movies);
       } else {
         throw ServerFailure(
             'Failed to fetch movies: ${response.statusMessage}');

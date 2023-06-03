@@ -40,39 +40,42 @@ class CastSection extends StatelessWidget {
     );
   }
 
-  Container _cast(CastEntity cast, context) {
-    return Container(
-      margin: EdgeInsets.only(right: 8),
-      child: Row(
-        children: [
-          CircleAvatar(
-              radius: 30,
-              backgroundImage: NetworkImage(
-                Api.getImageUrl(cast.profilePath),
-              )),
-          SizedBox(
-            width: 5,
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  cast.character,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge
-                      ?.copyWith(overflow: TextOverflow.ellipsis),
-                ),
-                Text(
-                  cast.name,
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ],
+  Widget _cast(CastEntity cast, context) {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        margin: EdgeInsets.only(right: 8),
+        child: Row(
+          children: [
+            CircleAvatar(
+                radius: 30,
+                backgroundImage: NetworkImage(
+                  Api.getImageUrl(cast.profilePath),
+                )),
+            SizedBox(
+              width: 5,
             ),
-          )
-        ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    cast.character,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge
+                        ?.copyWith(overflow: TextOverflow.ellipsis),
+                  ),
+                  Text(
+                    cast.name,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
