@@ -9,15 +9,15 @@ There is 3 section here with 3 different colors :
   - Top Rated : Displays a curated list of the highest-rated movies based on user ratings, critics' reviews, and popular demand(100%)
   - Upcoming : Showcases a list of upcoming movie releases, allowing users to stay updated on the latest releases, release dates, and movie details.(100%)
   - Details : Provides comprehensive details about a specific movie based on its unique ID. Users can access information such as genres, runtime, cast and crew, ratings, and reviews for a particular movie. (100%)
+  - cast: Allows users to view information about the cast and crew of movies.(100%)
 
 - 🟥 Features in Progress:
-
-  - cast: Allows users to view information about the cast and crew of movies.(5%)
 
 - ⬛ Known Features:
 
 <br/>
-<img width="" src="https://github.com/moha-b/Mova/assets/73842931/586f0c68-ea81-44e6-96a1-3900b5570bc9" />
+<img width="" src="https://github.com/moha-b/Mova/assets/73842931/49bf5741-ce14-4a1e-9586-95b49e3f269f" />
+
 
 <br/>
 
