@@ -1,5 +1,9 @@
-# Mova ( **Not Completed Yet** )
+# Mova
 movie app demonstrates how the clean architecture and BLoC pattern can be used to build a robust and scalable mobile application that can handle multiple APIs with different endpoints. It showcases how the separation of concerns, reactive programming, and modularization can simplify complex development tasks and make code easier to maintain and extend.
+
+> **Warning**
+>
+> Execution will continue with (Mvc or Mvvm) architecture due to the huge size of the clean architecture it's not fitting to complete the project, but this amout is more than enough for educational purposes 🙏
 
 ## Features ✨
 There is 3 section here with 3 different colors :
@@ -18,9 +22,7 @@ There is 3 section here with 3 different colors :
 <br/>
 <img width="" src="https://github.com/moha-b/Mova/assets/73842931/49bf5741-ce14-4a1e-9586-95b49e3f269f" />
 
-
 <br/>
-
 
 ## Techniques used 🛠️    
 
